@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password</title>
+    <link rel="stylesheet" href="/css/resetpassword.css">
+</head>
+<body>
+    <div class="main">
+        <div class="login-side">
+            <h2>Reset Password</h2>
+            <form action="/resetverify/<%=email%>" method="post">
+                <!-- Add an input field for OTP -->
+                <input type="text" name="otp" placeholder="Enter OTP" required>
+                <!-- Add a button to verify OTP -->
+                <button type="submit" id="verifyOTP">Verify OTP</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- You can add your JavaScript here if needed -->
+    <!-- <script>
+        // Add JavaScript logic here if needed
+        document.getElementById('verifyOTP').addEventListener('click', function() {
+            // Add logic to verify OTP here
+            // You can make AJAX requests to your server to verify the OTP
+            // alert('Verify OTP functionality will be implemented here.');
+        });
+    </script> -->
+</body>
+</html>

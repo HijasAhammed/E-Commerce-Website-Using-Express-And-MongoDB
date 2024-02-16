@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiYa</title>
+    <link rel="icon" type="image/x-icon" href="public/logo/Kart.png">
+    <!-- <link rel="icon" type="image/x-icon" href="/logo/kartlogoimage.jpg"> -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/addToCart.css">
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+</head>
+
+<body>
+    <header id="cart-header" class="cart-header">
+        <div class="navigation">
+            <div class="container">
+                <nav class="nav__center">
+                    <div class="nav__header">
+                        <div class="nav__logo">
+                            <a href="index.html">
+                                <h1>Li<span>Ya</span></h1>
+                            </a>
+                        </div>
+
+                        <div class="nav__hamburger">
+                            <span>
+                                <svg>
+                                    <use xlink:href="../images/sprite.svg#icon-menu"></use>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="nav__menu">
+                        <div class="menu__top">
+                            <h1 class="nav__category">NR<span>G</span></h1>
+                            <div class="close__toggle">
+                                <svg>
+                                    <use xlink:href="../images/sprite.svg#icon-cross"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <ul class="nav__list">
+                            <li class="nav__item">
+                                <a href="#header" class="nav__link scroll-link">Home</a>
+                            </li>
+
+                            <li class="nav__item">
+                                <a href="#featured" class="nav__link scroll-link">Featured</a>
+                            </li>
+
+                            <li class="nav__item">
+                                <a href="#blog" class="nav__link scroll-link">Blog</a>
+                            </li>
+
+                            <li class="nav__item">
+                                <a href="#newsletter" class="nav__link scroll-link">Subscribe</a>
+                            </li>
+
+                            <li class="nav__item">
+                                <!-- <a href="login.html" class="nav__link">Login</a>
+                                <a href="login.html" class="nav__link">Sign up</a> -->
+                            </li>
+                        </ul>
+
+                        <ul class="nav__icons">
+                            <a href="#" class="icon__item">
+                                <svg>
+                                    <use xlink:href="../images/sprite.svg#icon-search"></use>
+                                </svg>
+                            </a>
+
+                            <a href="#" class="icon__item">
+                                <svg>
+                                    <use xlink:href="../images/sprite.svg#icon-user"></use>
+                                </svg>
+                            </a>
+
+                            <a href="#" class="icon__item">
+                                <svg>
+                                    <use xlink:href="../images/sprite.svg#icon-shopping-basket"></use>
+                                </svg>
+                                <span>2</span>
+                            </a>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+
+    </header>
+
+    <main>
+        <section id="cart">
+            <div id="cart-container">
+                <div id="pincode">
+                    <p>Check delivery time & services</p>
+                    <button>ENTER PIN CODE</button>
+                </div>
+
+                <div id="offers">
+                    <p>Available offers</p>
+                    <ul>- 10% Instant Discount on Rupay Credit cards on a Minimum spend of Rs 2,000. TCA </ul>
+                    <button>Show More <i class="uil uil-angle-down"></i></button>
+                </div>
+
+                <div class="select-item">
+                    <div class="select-item-left">
+                        <input type="checkbox" name="" id="">
+                        <p>1/1 Items Selected</p>
+                    </div>
+                    <div class="select-item-right">
+                        <button>Remove</button>
+                        <span>|</span>
+                        <button>Move to Wishlist</button>
+                    </div>
+
+                </div>
+
+                <div class="product-item">
+                    <div class="product-item-img">
+                        <img src="../images/pic5.png" alt="">
+                    </div>
+                    <div class="product-item-details">
+                        <h3>Jacket</h3>
+                        <span>Sold by: Nike Limited</span>
+                        <form action="" method="get">
+                            <label for="browser">Size :</label>
+                            <input list="browsers" name="browser" id="browser">
+                            <datalist id="browsers">
+                                <option value="M">
+                                <option value="L">
+                                <option value="XL">
+                                <option value="XXL">
+                                <option value="XXXL">
+                            </datalist>
+                        </form>
+                        <form action="" method="get">
+                            <label for="browser">Qty :</label>
+                            <input list="browsers" name="browser" id="browser">
+                            <datalist id="browsers">
+                                <option value="1">
+                                <option value="2">
+                                <option value="3">
+                                <option value="4">
+                                <option value="5">
+                            </datalist>
+                        </form>
+
+                        <p>Rs. 1399 <span>75% OFF</span></p>
+                        <p><i class="uil uil-enter"></i> <b> 14 days </b> return available</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <aside>
+        <section id="place-order">
+            <div class="coupons">
+                <p>COUPONS</p>
+                <div class="coupons-div">
+                    <p><i class="uil uil-tag-alt"></i> Apply Coupons</p>
+                    <button>APPLY</button>
+                </div>
+                <p>Login to get upto Rs 300 OFF on first order</p>
+            </div>
+
+            <div class="price-detail">
+                <p>Price Deatils <span> - [ 1 item ]</span></p>
+                <div class="price-detail-div">
+                    <div>
+                        <p>Total Price</p>
+                        <p>Rs 1399</p>
+                    </div>
+
+                    <div>
+                        <p>Discount on MRP</p>
+                        <p class="discount">-Rs 300</p>
+                    </div>
+
+                    <div>
+                        <p>Coupon Discount</p>
+                        <p><a href="">Apply Coupon</a></p>
+                    </div>
+
+                    <div>
+                        <p>Shipping</p>
+                        <p>FREE</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="place-order-container">
+                <div class="total-price">
+                    <p>Total Amount</p>
+                    <p>Rs 1399</p>
+                </div>
+
+                <div class="place-order-button">
+                    <button>PLACE ORDER</button>
+                </div>
+
+            </div>
+        </section>
+    </aside>
+
+</body>
+
+</html>

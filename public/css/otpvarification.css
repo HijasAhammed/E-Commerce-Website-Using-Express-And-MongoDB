@@ -1,0 +1,62 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--grey-color);
+    color: var(--dark-color);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url("/images/pic12.jpg")
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .header {
+    background-color: var(--default-color);
+    color: var(--white);
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .otp-form {
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid var(--dark-color-alt);
+    border-radius: 5px;
+  }
+  
+  button {
+    background-color: var(--default-color);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: var(--default-color2);
+  }
+  

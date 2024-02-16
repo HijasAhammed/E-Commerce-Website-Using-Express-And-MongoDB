@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <link rel="stylesheet" href="/css/adminside/userlist.css">
+</head>
+<body>
+    <header>
+        <h1>User Details</h1>
+    </header>
+
+    <main>
+        <div class="user-details">
+            <h2>User Information</h2>
+
+            <% userdetails.forEach((datas) => { %>
+                <p><b>Name:</b> <%= datas.name %></p>
+                <p><b>last:</b> <%= datas.last %></p> 
+                <p><b>Email:</b> <%= datas.email %></p>
+                <p><b>phone:</b> <%= datas.phone %></p>
+            <% }) %>
+        </div>
+    </main>
+
+</body>
+</html>
+
+

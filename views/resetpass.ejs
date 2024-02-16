@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reset Password</title>
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+      <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--grey-color);
+      color: var(--dark-color);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: url("/images/pix4.jpg");
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      background-color: var(--default-color);
+      color: var(--white);
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .otp-form {
+      background-color: var(--white);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid var(--dark-color-alt);
+      border-radius: 5px;
+    }
+    button {
+      background-color: var(--default-color);
+      color: var(--white);
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: var(--default-color2);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Reset Password</h1>
+    </div>
+    <div class="otp-form">
+      <form action="/resetpassword/<%= email %>" method="POST" id="resetPasswordForm">
+        <div class="form-group">
+          <label for="newPassword">New Password</label>
+          <input type="password" id="newpassword" name="newpassword" required>
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" required>
+        </div>
+        <button type="submit" style="background-color: black;color: white;">Reset Password</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

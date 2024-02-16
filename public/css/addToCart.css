@@ -1,0 +1,299 @@
+:root {
+    --default-color: #0E8388;
+    --default-color2: #73c5c8;
+    --dark-color: #222;
+    --dark-color-alt: #3c4858;
+    --grey-color: #f9fafd;
+    --grey-color-alt: #8492a6;
+    --yellow: #ff8400;
+    --white: #fff;
+}
+
+body {
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: var(--white);
+}
+
+
+
+
+.cart-header {
+    min-height: 30vh;
+    background: linear-gradient(to top,
+            rgba(58, 97, 145, 0.5),
+            rgba(53, 11, 52, 0.6)),
+        url("../images/Banner1.jpg") center/cover no-repeat fixed;
+    position: relative;
+    z-index: 100;
+}
+
+.cart-header::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+
+
+
+main {
+    width: 60%;
+    margin-left: 5%;
+    display: inline-block;
+    /* display: inline; */
+}
+
+aside{
+    display: inline-block;
+    margin-left: 5%;
+    width: 25%;
+    vertical-align: top;
+}
+#cart-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#pincode {
+    margin: 7px;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    box-shadow: 2px 2px 10px 1px #d1ddef;
+}
+
+#pincode button {
+    padding: 5px 10px;
+    background: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    border: 2px solid var(--default-color);
+    background-color: var(--default-color);
+}
+
+#pincode button:hover {
+    background: none;
+    color: black;
+    border: 2px solid var(--default-color);
+}
+
+#offers {
+    margin: 7px;
+    padding: 15px;
+    box-shadow: 2px 2px 10px 1px #d1ddef;
+}
+
+#offers button {
+    background: transparent;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    color: var(--default-color);
+    cursor: pointer;
+}
+
+.select-item {
+    box-shadow: 2px 2px 10px 1px #d1ddef;
+    margin: 7px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.select-item-left,
+.select-item-right {
+    display: flex;
+    justify-content: space-around;
+}
+
+.select-item-left input {
+    margin-right: 5px;
+}
+
+.select-item-right button {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 5px 10px;
+    background: transparent;
+    border: 2px solid var(--default-color);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.select-item-right button:hover {
+    color: #fff;
+    background-color: var(--default-color);
+}
+
+.product-item {
+    margin: 7px;
+    padding: 15px;
+    display: flex;
+    justify-content: flex-start;
+    box-shadow: 2px 2px 10px 1px #d1ddef;
+}
+
+.product-item-img {
+    border: 1px solid rgb(212, 212, 212);
+    padding: 7px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.product-item-img img {
+    width: 100px;
+    transition: transform .3s ease;
+    overflow: hidden;
+}
+
+.product-item-img img:hover{
+    transform: scale(1.1);
+}
+
+.product-item-details h3{
+    color: var(--default-color);
+}
+
+.product-item-details span{
+    color: var(--dark-color-alt);
+    font-size: 12px;
+}
+
+.product-item-details form input{
+    width: 55px;
+    height: 20px;
+    padding: 5px;
+    background-color: var(--default-color2);
+    outline: none;
+    border: none;
+    border-radius: 3px;
+}
+
+.product-item-details p span{
+    color: var(--default-color);
+}
+
+
+
+
+/* ASIDE */
+
+
+
+#place-order{
+    display: flex;
+    flex-direction: column;
+}
+
+.coupons{
+    margin: 7px;
+    padding: 15px;
+    box-shadow: 2px 2px 10px 1px #d1ddef;
+}
+
+.coupons p{
+    margin-left: 10px;
+    font-size: 13px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.coupons-div {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 2px 2px 10px 1px #d1ddef;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+
+
+.coupons-div button {
+    padding: 5px 10px;
+    background: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    border: 2px solid var(--default-color);
+    background-color: var(--default-color);
+}
+
+.coupons-div button:hover {
+    background: none;
+    color: black;
+    border: 2px solid var(--default-color);
+}
+
+.price-detail{
+    margin: 7px;
+    padding: 15px;
+    box-shadow: 2px 2px 10px 1px #d1ddef;
+}
+
+.price-detail p{
+    font-size: 13px;
+}
+
+.price-detail-div{
+    display: flex;
+    flex-direction: column;
+}
+
+.price-detail-div div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.discount{
+    color: var(--default-color);
+}
+
+
+.place-order-container{
+    margin: 7px;
+    padding: 15px;
+    box-shadow: 2px 2px 10px 1px #d1ddef;
+}
+
+.total-price {
+    display: flex;
+    justify-content: space-between;
+}
+
+.total-price p{
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.place-order-button{
+    width: 100%;
+}
+.place-order-button button{
+    width: 100%;
+    height: 30px;
+    margin-top: 15px;
+    padding: 5px 10px;
+    background: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    border: 2px solid var(--default-color);
+    background-color: var(--default-color);
+}
+
+.place-order-button button:hover {
+    background: none;
+    color: black;
+    border: 2px solid var(--default-color);
+}

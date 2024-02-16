@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OTP Verification</title>
+  <link rel="stylesheet" href="/css/otpvarification.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>OTP Verification</h1>
+    </div>
+    <form action="/otpform" method="post">
+      <div class="form-group">
+        <label for="otp">Enter OTP:</label>
+        <input type="text" id="otp" name="otp" required>
+      </div>
+      <button type="submit" style="background-color: #0e8388; color: white;">Verify</button>
+    </form>
+  </div>
+</body>
+</html>
