@@ -69,7 +69,14 @@ module.exports={
                     Quantity,
                     Description,
                 }=req.body
-                productimg=req.files.map((img)=>img.filename)
+                let productimg;
+                if(req.files.length>0){
+                    productimg=req.files.map((img)=>img.filename)
+                }else{
+                    const productdetails = await productmodel.findOne({_id:id})
+                    productimg = productdetails.productimg.map((img)=>img)
+                }
+               
                 await productmodel.findByIdAndUpdate(id,{
                     $set:{
                         ProductName:ProductName,

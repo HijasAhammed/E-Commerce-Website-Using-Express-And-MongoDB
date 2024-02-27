@@ -145,9 +145,9 @@
   
           <div class="featured__center">
             <% addproducts.forEach((addpr)=>{ %>
-              <div class="product">
+              <div class="product" >
                 <div class="img__container">
-                  <img src="/asset/ <%=addpr." alt="" />
+                  <img src="/asset/<%=addpr.productimg[0] %>" alt="" />
                 </div>
                 <div class="product__bottom">
                   <div class="rating">
@@ -177,7 +177,15 @@
                       </svg>
                     </span>
                   </div>
-                  <h3>Polar Skate Co Devil T Shirt</h3>
+                   
+                    <div class="product N">
+                    <h1><%=addpr.ProductName %></h1>
+                  </div>
+                  <h4>Quantity:<%=addpr.Quantity %></h4>
+                  <h4>Description:<%=addpr.Description %></h4>
+                  <h4>₹<%=addpr.Price %></h4>
+                 
+                  
                   <a href="#">Add To Cart</a>
                 </div>
               </div>

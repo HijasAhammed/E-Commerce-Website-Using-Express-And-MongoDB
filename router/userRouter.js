@@ -3,7 +3,7 @@ const router=express.Router();
 
 const{
     userGet,
-    productdetailsGet,
+    productdetailsGet
 }=require('../controller/userControllers')
 
 

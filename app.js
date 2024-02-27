@@ -24,5 +24,4 @@ app.use("/user",user)
 
 app.listen(port,()=>{
     console.log(`Server started Port No ${port}`)
-    
 })
