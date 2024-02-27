@@ -8,7 +8,6 @@ const{
     signuppost,
     otpget,
     otppost,
-    userget,
     resetpassGet,
     resetpassPost,
     resetverifyGet,
@@ -24,7 +23,6 @@ router.get("/",loginget)
       .post("/signup",signuppost)
       .get("/otpform",otpget)
       .post("/otpform",otppost)
-      .get("/user",userget)
       .get("/resetpass",resetpassGet)
       .post("/resetpass",resetpassPost)
       .get("/resetverify/:mail",resetverifyGet)

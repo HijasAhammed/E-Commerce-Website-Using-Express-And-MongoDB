@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile-edit</title>
+    <link rel="stylesheet" href="/css/adminside/addproduct.css">
+</head>
+<body>
+    <h1 class="liya">LiYa</h1>
+    <form action="/admin/addproduct" method="post" enctype="multipart/form-data">
+    <div class="container">
+        <div class="section">
+            <div class="box">
+                <div class="head">
+                    <img class="image"src="" id="imagePreview" alt="" style="border-radius: 0; height: 12rem; width: 12rem; background-color: white;" >
+                </div>
+                <div class="text">
+                        <label for="">Image</label>
+                        <input type="file" onchange="previewImage(this)" name="productimg" id="productimg">
+                        <label for="product">Product Name :</label>
+                        <input type="text" name="ProductName" id="ProductName">
+                        <label for="Category">Category: </label>
+                        <select name="Category" id="Category">
+                            <option value="" selected disabled>Select Category</option>
+                            <% catgory.forEach((data)=>{ %>
+                                <option value="<%= data.categories %>"><%= data.categories %></option>></option>
+                           <% }); %>
+                        </select>
+                       
+                        <label for="price">Price : </label>
+                        <input type="number" name="Price"  id="Price">
+                        <label for="quantity">Quantity : </label>
+                        <input type="number" name="Quantity"  id="Quantity" >
+                        <label for="Description">Description : </label>
+                        <input type="text" name="Description"  id="Description">  
+                        <!-- <textarea name="details" id="" cols="30" rows="10"></textarea> -->
+                </div>
+                <div class="button">
+                    <button type="submit">Confirm</button>
+                    <button type="button" onclick="window.location.href ='/admin/admindash'">Back</button>
+                   <script>
+                    function previewImage(input) {
+    var file = input.files[0];
+    if (file) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            document.getElementById('imagePreview').src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+}
+                   </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</form> 
+</body>
+</html>

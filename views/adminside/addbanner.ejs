@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Banner</title>
+    <link rel="stylesheet" href="/css/adminside/addbanner.css">
+    
+</head>
+<body>
+    <h1>Add Banner</h1>
+    <form action="/admin/addbanner" method="post" enctype="multipart/form-data">
+        <div>
+            <label for="addImage">Add Image:</label>
+            <input type="file" id="addImage" name="Image" onchange="previewImage(event)">
+        </div>
+        <div>
+            <img id="preview" src="#" alt="Preview Image" style="max-width: 200px; max-height: 200px;">
+        </div>
+        <div>
+            <label for="bannerName">Banner Name:</label>
+            <input type="text" id="bannerName" name="BannerName">
+        </div>
+        <div>
+            <label for="description">Description:</label><br>
+            <textarea id="description" name="Description" rows="4" cols="50"></textarea>
+        </div>
+        <div>
+            <label for="offer">Offer:</label>
+            <input type="text" id="offer" name="Offer">
+        </div>
+        <div>
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate" name="Startdate">
+        </div>
+        <div>
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate" name="Enddate">
+        </div>
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</body>
+<script>
+    function previewImage(event) {
+        var reader = new FileReader();
+        reader.onload = function() {
+            var output = document.getElementById('preview');
+            output.src = reader.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
+</html>

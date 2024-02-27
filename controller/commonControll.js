@@ -29,7 +29,7 @@ module.exports={
         }
 
        
-       return res.redirect("user");
+       return res.redirect("/user/user");
     },
     signupget:(req,res)=>{
         res.render("signup")
@@ -100,9 +100,6 @@ module.exports={
             console.log('otp varification failed')
             return res.stutas(400).send("otp varification failed")
         }
-    },
-    userget:(req,res)=>{
-        res.render("userhome")
     },
     resetpassGet:async(req,res)=>{
         res.render("resetpassword") 

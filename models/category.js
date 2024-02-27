@@ -4,9 +4,7 @@ const adminschema=new mongoose.Schema({
     
     categories:{
         type:String,
+        required:true
     },
-    Description:{
-        type:String,
-    }
 })
 module.exports=mongoose.model("category",adminschema)
