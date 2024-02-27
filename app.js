@@ -14,8 +14,6 @@ app.use(express.static("public"))
 app.set("views",path.join(__dirname,"views"))
 app.set("view engine","ejs")
 
-
-
 const user=require("./router/userRouter")
 const admin=require("./router/adminRout")
 const common=require("./router/commonRout")
@@ -23,10 +21,6 @@ const common=require("./router/commonRout")
 app.use("/",common)
 app.use("/admin",admin)
 app.use("/user",user)
-
-
-
-
 
 app.listen(port,()=>{
     console.log(`Server started Port No ${port}`)
