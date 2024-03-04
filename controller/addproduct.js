@@ -37,7 +37,7 @@ module.exports={
             });
             console.log(addproduct)
                 await addproduct.save()
-                res.redirect('/admin/admindash')
+                res.redirect('/admin/editproduct')
             
             }
             catch(error){

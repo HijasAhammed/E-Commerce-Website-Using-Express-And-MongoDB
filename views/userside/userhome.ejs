@@ -137,65 +137,66 @@
       </section>
   
       <!-- Featured Section -->
+     
       <section class="section featured" id="featured">
-        <div class="featured__container container">
-          <div class="title">
-            <h1 class="primary__title">Featured Products</h1>
-          </div>
-  
-          <div class="featured__center">
-            <% addproducts.forEach((addpr)=>{ %>
-              <div class="product" >
-                <div class="img__container">
-                  <img src="/asset/<%=addpr.productimg[0] %>" alt="" />
-                </div>
-                <div class="product__bottom">
-                  <div class="rating">
-                    <span>
-                      <svg>
-                        <use xlink:href="../images/sprite.svg#icon-star-full"></use>
-                      </svg>
-                    </span>
-                    <span>
-                      <svg>
-                        <use xlink:href="../images/sprite.svg#icon-star-full"></use>
-                      </svg>
-                    </span>
-                    <span>
-                      <svg>
-                        <use xlink:href="../images/sprite.svg#icon-star-full"></use>
-                      </svg>
-                    </span>
-                    <span>
-                      <svg>
-                        <use xlink:href="../images/sprite.svg#icon-star-full"></use>
-                      </svg>
-                    </span>
-                    <span>
-                      <svg>
-                        <use xlink:href="../images/sprite.svg#icon-star-empty"></use>
-                      </svg>
-                    </span>
-                  </div>
-                   
-                    <div class="product N">
-                    <h1><%=addpr.ProductName %></h1>
-                  </div>
-                  <h4>Quantity:<%=addpr.Quantity %></h4>
-                  <h4>Description:<%=addpr.Description %></h4>
-                  <h4>₹<%=addpr.Price %></h4>
-                 
-                  
-                  <a href="#">Add To Cart</a>
-                </div>
-              </div>
-            <% }) %>
-           
+        <div> 
          
-          </div>
+            <div class="featured__container container">
+              <div class="title">
+                <h1 class="primary__title">Featured Products</h1>
+              </div>
+              <div class="featured__center">
+                <% addproducts.forEach((addpr)=>{ %>
+                  <div class="product" onclick="window.location.href='/user/productdetails/?id=<%=addpr._id%>'">
+                    <div class="img__container">
+                      <img src="/asset/<%=addpr.productimg[0] %>" alt="" />
+                    </div>
+                    <div class="product__bottom">
+                      <div class="rating">
+                        <span>
+                          <svg>
+                            <use xlink:href="../images/sprite.svg#icon-star-full"></use>
+                          </svg>
+                        </span>
+                        <span>
+                          <svg>
+                            <use xlink:href="../images/sprite.svg#icon-star-full"></use>
+                          </svg>
+                        </span>
+                        <span>
+                          <svg>
+                            <use xlink:href="../images/sprite.svg#icon-star-full"></use>
+                          </svg>
+                        </span>
+                        <span>
+                          <svg>
+                            <use xlink:href="../images/sprite.svg#icon-star-full"></use>
+                          </svg>
+                        </span>
+                        <span>
+                          <svg>
+                            <use xlink:href="../images/sprite.svg#icon-star-empty"></use>
+                          </svg>
+                        </span>
+                      </div>
+                        <div class="product N">
+                        <h1><%=addpr.ProductName %></h1>
+                      </div>
+                      <h3><h5>Quantity:</h5><%=addpr.Quantity %></h3>
+                      <h5><%=addpr.Description %></h5>
+                      <h4>₹<%=addpr.Price %></h4>
+                      <a href="#">Add To Cart</a>
+                    </div>
+                  </div>
+                <% }) %>
+              </div>
+            </div>
+       
         </div>
+        
+          
       </section>
-  
+    
       <!-- Blog -->
       <section class="section blog" id="blog">
         <div class="blog__container container">

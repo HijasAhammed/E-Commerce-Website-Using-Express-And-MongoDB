@@ -1,5 +1,4 @@
 const userschema=require("../models/signupdata")
-
 module.exports ={
     admindash:(req,res)=>{
         res.render("admindash")

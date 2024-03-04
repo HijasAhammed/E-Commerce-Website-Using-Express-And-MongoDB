@@ -8,8 +8,6 @@ const authToken = "b026460510a2219130258a70aa0937b9";
 const emailOtp=require("../middileware/otp")
 const twilio = require("twilio")(accountSid, authToken);
 let number;
-
-
 const signData=require("../models/signupdata")
 module.exports={
     loginget:(req,res)=>{
@@ -18,17 +16,12 @@ module.exports={
     loginpost: async (req,res)=>{
         console.log(req.body)
         const user = await signData.findOne(({ email: req.body.email }));
-
         if (!user) {
             return res.status(400).send("User not found");
         }
-
-       
         if (user.password !== req.body.password) {
             return res.status(400).send("Invalid password");
         }
-
-       
        return res.redirect("/user/user");
     },
     signupget:(req,res)=>{
@@ -42,11 +35,9 @@ module.exports={
         if(!emailRegax.test(email)){
             return res.status(400).send("invalid email adress");
         }
-        
         if(!passwordRegex.test(password)){
             return res.status(400).send("Password must contain at least 8 characters, including one uppercase letter, one lowercase letter, and one number");
         }
-            // const hashedpassword=await bcrypt.hash(password,10)
        const signupSave = await signData.create({
             name,
             last,
@@ -54,17 +45,13 @@ module.exports={
             phone,
             password,
             role:"user",
-           
         })
-
         if(signupSave){
             number=req.body.phone
-            
         await twilio.verify.v2.services(serviceSSID)
         .verifications.create({
             to: `+91${req.body.phone}`,
             channel: "sms"
-          
         })
         .then((resp) => {
             console.log("response", resp.status);

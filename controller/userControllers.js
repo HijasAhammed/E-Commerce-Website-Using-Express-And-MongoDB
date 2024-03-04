@@ -6,7 +6,11 @@ module.exports={
         const addproducts= await products.find()
        res.render("userside/userhome",{bannerscheme,addproducts})
     },
-    productdetailsGet:(req,res)=>{
-        res.render("userside/productdetails")
+    productdetailsGet: async (req,res)=>{
+        const data=req.query.id
+        console.log(data)  
+        const showproducts= await products.findOne({_id:data})
+        console.log(showproducts)
+        res.render("userside/productdetails",{showproducts})
     }
 }
