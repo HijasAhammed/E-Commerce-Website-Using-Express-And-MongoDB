@@ -8,9 +8,9 @@ module.exports={
     },
     productdetailsGet: async (req,res)=>{
         const data=req.query.id
-        console.log(data)  
+        // console.log(data)  
         const showproducts= await products.findOne({_id:data})
-        console.log(showproducts)
+        // console.log(showproducts)
         res.render("userside/productdetails",{showproducts})
     }
 }

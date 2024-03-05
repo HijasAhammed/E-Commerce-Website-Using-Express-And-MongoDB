@@ -1,7 +1,6 @@
 const productmodel=require("../models/addproduct")
 const categorymodel=require("../models/category")
 const { updateOne } = require("../models/signupdata")
-
 module.exports={
     addproductGet: async (req,res)=>{ 
         try{
@@ -11,7 +10,6 @@ module.exports={
         catch(error){
             console.log(error)
         }
-      
     },
     addproductPost: async (req,res)=>{
         try{
@@ -24,7 +22,7 @@ module.exports={
                 Description,
             }=req.body;
             const productimg = req.files ? req.files.map(img=>img.filename):'no image'
-            console.log(req.files)
+            // console.log(req.files)
             
             const addproduct= new productmodel({
                 ProductName,
@@ -35,7 +33,7 @@ module.exports={
                 Description,
                 productimg,
             });
-            console.log(addproduct)
+            // console.log(addproduct)
                 await addproduct.save()
                 res.redirect('/admin/editproduct')
             
@@ -91,8 +89,7 @@ module.exports={
             }
             catch(error){
                 console.log(error)
-            }
-            
+            }    
         },  
         deleteproduct: async(req,res)=>{
             try{

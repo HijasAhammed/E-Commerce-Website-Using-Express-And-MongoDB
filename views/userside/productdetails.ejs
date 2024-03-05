@@ -21,7 +21,7 @@
 </head>
 
 <body>
-  <form action="/productdetails">
+  <form >
     <main>
       <!-- Cart Slide -->
       <section class="cart__slide">
@@ -69,7 +69,8 @@
                           </span>
                         </div>
                         <div class="btn__group">
-                          <button>Add To <i class="uil uil-shopping-cart-alt"></i></button>
+                          <button type="button" onclick="window.location.href='/user/addcart'">Add To Cart<i class="uil uil-shopping-cart-alt"></i></button>
+                          
                           <button>Rs:<%=showproducts.Price %></button>
                         </div>
                       </div>

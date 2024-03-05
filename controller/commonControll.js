@@ -22,6 +22,8 @@ module.exports={
         if (user.password !== req.body.password) {
             return res.status(400).send("Invalid password");
         }
+        console.log("hai"+user._id)
+        req.session.user_id=user._id
        return res.redirect("/user/user");
     },
     signupget:(req,res)=>{

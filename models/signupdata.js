@@ -1,5 +1,4 @@
 const mongoose=require("mongoose")
-
 const signData=new mongoose.Schema({
     name:String,
     last:String,

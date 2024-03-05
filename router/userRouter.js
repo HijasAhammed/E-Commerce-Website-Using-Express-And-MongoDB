@@ -7,14 +7,14 @@ const{
 }=require('../controller/userControllers')
 
 const{
-    addcartGet,
+    // addcartGet,
     addcartPost,
 }=require("../controller/addcart")
 
 router.get("/user",userGet)
       .get("/productdetails",productdetailsGet)
-      .get("/addcart",addcartGet)
-      .post("/addcart",addcartPost)
+    //   .get("/addcart",addcartGet)
+      .get("/addcart",addcartPost)
 
 
 module.exports=router;

@@ -10,6 +10,11 @@ mongoose.connect("mongodb://localhost:27017/ecommerece")
 .then(()=>{console.log("mongodb connected")})
 .catch(()=>{console.log("mongodb not connected")})
 app.use(express.urlencoded({extended:false}))
+app.use(session({
+    secret:"nick",
+    resave:false,
+    saveUninitialized:false
+}))
 app.use(express.static("public"))
 app.set("views",path.join(__dirname,"views"))
 app.set("view engine","ejs")
