@@ -22,7 +22,7 @@ module.exports={
         if (user.password !== req.body.password) {
             return res.status(400).send("Invalid password");
         }
-        console.log("User id="+user._id)
+        // console.log("User id="+user._id)
         req.session.user_id=user._id
        return res.redirect("/user/user");
     },
@@ -87,7 +87,7 @@ module.exports={
            
         }else{
             console.log('otp varification failed')
-            return res.stutas(400).send("otp varification failed")
+            return res.status(400).send("otp varification failed")
         }
     },
     resetpassGet:async(req,res)=>{

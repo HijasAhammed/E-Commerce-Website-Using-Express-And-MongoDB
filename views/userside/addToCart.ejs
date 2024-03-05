@@ -38,15 +38,17 @@
                             <button>Move to Wishlist</button>
                         </div>
                     </div>
-                  
+                    <% datas[0].newpro.forEach((details)=>  {%>
                         <div class="product-item">
+                         
                             <div class="product-item-img">
-                                <img src="/asset/" alt="">
+                                <img src="/asset/<%=details.productimg %>" alt="">
                             </div>
                             <div class="product-item-details">
-                                <h3>Jacket</h3>
-                                <span>Sold by: Nike Limited</span>
-                                <form action="" method="get">
+                                <h3><%=details.ProductName %></h3>
+                                <span><%=details.Category %></span>
+                                &nbsp;
+                                <!-- <form action="" method="get">
                                     <label for="browser">Size :</label>
                                     <input list="browsers" name="browser" id="browser">
                                     <datalist id="browsers">
@@ -56,9 +58,11 @@
                                         <option value="XXL">
                                         <option value="XXXL">
                                     </datalist>
-                                </form>
-                                <form action="" method="get">
-                                    <label for="browser">Qty :</label>
+                                </form> --> 
+                                <label for="browser">Quantity :<%=details.Quantity %></label>
+                                <!-- <form action="" method="get">
+                                    
+                                   
                                     <input list="browsers" name="browser" id="browser">
                                     <datalist id="browsers">
                                         <option value="1">
@@ -67,11 +71,13 @@
                                         <option value="4">
                                         <option value="5">
                                     </datalist>
-                                </form>
-                                <p>Rs. 1399 <span>75% OFF</span></p>
+                                </form> -->
+                                <p>Rs.<%=details.Price %><span> &nbsp; 75% OFF</span></p>
                                 <p><i class="uil uil-enter"></i> <b> 14 days </b> return available</p>
                             </div>
+                       
                         </div>
+                        <% })%>
                 </div>
             </section>
         </main>

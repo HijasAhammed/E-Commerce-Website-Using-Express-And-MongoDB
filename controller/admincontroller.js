@@ -2,7 +2,8 @@ const userschema=require("../models/signupdata")
 module.exports ={
     admindash:(req,res)=>{
         res.render("admindash")
-    },      
+    }, 
+         
     userdetailsGet: async (req,res)=>{
         try{
             const userdetails=await userschema.find()

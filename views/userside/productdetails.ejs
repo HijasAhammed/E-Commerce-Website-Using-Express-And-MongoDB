@@ -63,13 +63,13 @@
                             </svg>
                           </span>
                           <span>
-                            <svg>
+                            <!-- <svg>
                               <use xlink:href="../images/sprite.svg#icon-star-empty"></use>
-                            </svg>
+                            </svg> -->
                           </span>
                         </div>
                         <div class="btn__group">
-                          <button type="button" onclick="window.location.href='/user/addcart'">Add To Cart<i class="uil uil-shopping-cart-alt"></i></button>
+                          <button type="button" onclick="window.location.href='/user/addcart?id=<%=showproducts._id %>'">Add To Cart<i class="uil uil-shopping-cart-alt"></i></button>
                           
                           <button>Rs:<%=showproducts.Price %></button>
                         </div>
