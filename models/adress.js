@@ -27,6 +27,10 @@ const adressSchema=new mongoose.Schema({
     HouseName:{
         type:String,
         required:true,
+    },
+    Pincode:{
+        type:Number,
+        required:true,
     }
 })
 module.exports=mongoose.model("adress",adressSchema)

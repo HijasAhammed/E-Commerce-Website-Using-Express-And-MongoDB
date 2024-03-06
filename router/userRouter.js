@@ -12,6 +12,8 @@ const{
 }=require("../controller/addcart")
 const {
     adressget,
+    adresspost,
+    adressdashget,
 }=require("../controller/adress")
 
 router.get("/user",userGet)
@@ -19,6 +21,8 @@ router.get("/user",userGet)
       .get("/cart",addcartGet)
       .get("/addcart",addcartPost)
       .get("/adress",adressget)
+      .post("/adress",adresspost)
+      .get("/adressdashboard",adressdashget)
 
      
 module.exports=router;

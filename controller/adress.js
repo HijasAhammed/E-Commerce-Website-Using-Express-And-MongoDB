@@ -9,6 +9,20 @@ module.exports={
                 console.log(error)
             }
            
+        },
+        adresspost: async (req,res)=>{
+            try{
+                await adress.create(req.body)    
+                res.redirect('/user/adressdashboard')
+            }
+            catch(error){
+                console.log(error)
+            }
+            
+        },
+        adressdashget: async (req,res)=>{
+            const adressdash= await adress.find()
+            res.render("userside/adressdash",{adressdash})
         }
     
 }

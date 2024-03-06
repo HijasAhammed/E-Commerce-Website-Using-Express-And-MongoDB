@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address Dashboard</title>
+    <link rel="stylesheet" href="/css/userside/adressdash.css"> <!-- Link to your CSS stylesheet -->
+</head>
+<body>
+    <h1>Address Dashboard</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Locality</th>
+                <th>Country</th>
+                <th>District</th>
+                <th>State</th>
+                <th>City</th>
+                <th>House Name</th>
+                <th>Pincode</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+         <% adressdash.forEach((data) => { %>
+            <tr>
+                <td><%= data.Name %></td>
+                <td><%= data.Locality %></td>
+                <td><%= data.Country %></td>
+                <td><%= data.District %></td>
+                <td><%= data.State %></td>
+                <td><%= data.City %></td>
+                <td><%= data.HouseName %></td>
+                <td><%= data.Pincode %></td>
+                <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <button>Go to Check out</button>
+    <button onclick="window.location.href='/user/adress'">Back</button>
+    <!-- Optional: Include JavaScript for interactivity -->
+
+</body>
+</html>
