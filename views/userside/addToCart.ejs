@@ -19,10 +19,10 @@
             <section id="cart">
                 <div id="cart-container">
 
-                    <div id="pincode">
+                    <!-- <div id="pincode">
                         <p>Check delivery time & services</p>
                         <button>ENTER PIN CODE</button>
-                    </div>
+                    </div> -->
                     <div id="offers">
                         <p>Available offers</p>
                         <ul>- 10% Instant Discount on Rupay Credit cards on a Minimum spend of Rs 2,000. TCA </ul>
@@ -38,7 +38,7 @@
                             <button>Move to Wishlist</button>
                         </div>
                     </div>
-                    <% datas[0].newpro.forEach((details)=>  {%>
+                    <% datas[0].newpro.forEach((details,i)=>  {%>
                         <div class="product-item">
                          
                             <div class="product-item-img">
@@ -48,30 +48,7 @@
                                 <h3><%=details.ProductName %></h3>
                                 <span><%=details.Category %></span>
                                 &nbsp;
-                                <!-- <form action="" method="get">
-                                    <label for="browser">Size :</label>
-                                    <input list="browsers" name="browser" id="browser">
-                                    <datalist id="browsers">
-                                        <option value="M">
-                                        <option value="L">
-                                        <option value="XL">
-                                        <option value="XXL">
-                                        <option value="XXXL">
-                                    </datalist>
-                                </form> --> 
-                                <label for="browser">Quantity :<%=details.Quantity %></label>
-                                <!-- <form action="" method="get">
-                                    
-                                   
-                                    <input list="browsers" name="browser" id="browser">
-                                    <datalist id="browsers">
-                                        <option value="1">
-                                        <option value="2">
-                                        <option value="3">
-                                        <option value="4">
-                                        <option value="5">
-                                    </datalist>
-                                </form> -->
+                                <label for="browser">Quantity :<%=datas[0].items[i].quantity %></label>
                                 <p>Rs.<%=details.Price %><span> &nbsp; 75% OFF</span></p>
                                 <p><i class="uil uil-enter"></i> <b> 14 days </b> return available</p>
                             </div>

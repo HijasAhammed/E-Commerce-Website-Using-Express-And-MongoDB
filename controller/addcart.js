@@ -14,6 +14,8 @@ module.exports = {
                     as: 'newpro'
                 }
             }])
+        
+            console.log(datas);
             res.render("userside/addToCart",{datas})
         }
         catch(error){
@@ -48,7 +50,7 @@ module.exports = {
                         if (productexist) {
                             const updatedCart = await addcart.findOneAndUpdate(
                                 { userID: userID, 'items.productID': productid }, // Find the cart with given _id and matching productId
-                                { $inc: { 'items.$.quantity': 1 } }, // Increment the quantity of the matching item
+                                { $inc: { 'items.$.quantity': 1} }, // Increment the quantity of the matching item
                                 { new: true } // Return the updated document
                             );
                         }
