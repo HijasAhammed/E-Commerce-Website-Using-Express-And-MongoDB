@@ -16,6 +16,9 @@ const {
     adressdashget,
     adressdelete,
 }=require("../controller/adress")
+const{
+    checkoutGet,
+}=require("../controller/checkout.js")
 
 router.get("/user",userGet)
       .get("/productdetails",productdetailsGet)
@@ -25,6 +28,7 @@ router.get("/user",userGet)
       .post("/adress",adresspost)
       .get("/adressdashboard",adressdashget)
       .delete("/deleteadress",adressdelete)
+      .get("/checkout",checkoutGet)
 
      
 module.exports=router;

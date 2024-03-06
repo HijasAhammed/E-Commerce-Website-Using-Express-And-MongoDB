@@ -5,7 +5,6 @@ module.exports = {
     addcartGet: async (req,res)=>{
         try{
             const userID = req.session.user_id
-            // const cartdetails = await addcart.findOne({ userID }).populate('items.productID')
             const datas = await addcart.aggregate([{
                 $lookup: {
                     from: "addproducts",
@@ -14,8 +13,6 @@ module.exports = {
                     as: 'newpro'
                 }
             }])
-        
-            console.log(datas);
             res.render("userside/addToCart",{datas})
         }
         catch(error){
@@ -31,22 +28,16 @@ module.exports = {
             }
             else {
                 const productid = req.query.id
-                console.log("PRODUCTID", productid, "---------------")
                 const userID = req.session.user_id
                 const id = new mongoose.Types.ObjectId(productid)
-                console.log('idddddddddddddddddddd',id);
                 const cart = await addcart.findOne({ userID })
                 let product;
-
                 if (!cart) {
                     const newcart = new addcart({ userID, items: [{ productID: id, quantity: 1 }] })
                     await newcart.save()
                 }
                 else {
-                    console.log("CART", cart,"-------------")
-                    console.log(productid);
                     const productexist = cart.items.find((item) => item.productID == productid)
-                    console.log("ProductExist",productexist,"---------------")
                         if (productexist) {
                             const updatedCart = await addcart.findOneAndUpdate(
                                 { userID: userID, 'items.productID': productid }, // Find the cart with given _id and matching productId
@@ -58,8 +49,6 @@ module.exports = {
                         product = []
                         cart.items.push({ productID: id, quantity: 1 })
                         await cart.save()
-                       
-                        console.log(cartdetails);
                     }
                 }
             }
