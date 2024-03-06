@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Address Dashboard</title>
+    <title>Address</title>
     <link rel="stylesheet" href="/css/userside/adressdash.css"> <!-- Link to your CSS stylesheet -->
 </head>
 <body>
-    <h1>Address Dashboard</h1>
+    <h1>Address</h1>
 
     <table>
         <thead>
@@ -25,7 +25,7 @@
         </thead>
         <tbody>
          <% adressdash.forEach((data) => { %>
-            <tr>
+            <tr id="product_<%=data._id%>">
                 <td><%= data.Name %></td>
                 <td><%= data.Locality %></td>
                 <td><%= data.Country %></td>
@@ -35,17 +35,51 @@
                 <td><%= data.HouseName %></td>
                 <td><%= data.Pincode %></td>
                 <td>
-                    <button>Edit</button>
-                    <button>Delete</button>
+                    <button type="submit"onclick="deletion('<%=data._id%>')">Delete</button>
                 </td>
             </tr>
             <% }); %>
         </tbody>
     </table>
-
-    <button>Go to Check out</button>
-    <button onclick="window.location.href='/user/adress'">Back</button>
-    <!-- Optional: Include JavaScript for interactivity -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+    <script>
+        async function deletion(dltproduct){
+         
+            try {
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, delete it!"
+                }).then(async(result) => {
+                    if (result.isConfirmed) {
+                        console.log(dltproduct);
+                        const response = await axios.delete(`/user/deleteadress?id=${dltproduct}`)
+                if(response.status==200){
+                    Swal.fire({
+                         title: "Deleted!",
+                         text: "Your file has been deleted.",
+                         icon: "success"
+                        });
+                        document.getElementById(`product_${dltproduct}`).remove();
+                    }else{
+                    console.log('error');
+                }
+            }
+        });
+    } catch (error) {
+                console.log('error');
+            }
+        }
+    </script>
+    <button >Go to Check out</button>
+    <button onclick="window.location.href='/user/adress'">Add Adress</button>
+    <button onclick="window.location.href='/user/user'">Back</button>
 
 </body>
 </html>

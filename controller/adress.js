@@ -23,6 +23,20 @@ module.exports={
         adressdashget: async (req,res)=>{
             const adressdash= await adress.find()
             res.render("userside/adressdash",{adressdash})
+        },
+        adressdelete: async (req,res)=>{
+            const adressid=req.query.id;
+            console.log("aaa",adressid)
+            try{
+              const abc=  await adress.deleteOne({_id:adressid});
+              console.log(abc);
+                res.json("deleted")
+            }
+            catch(error){
+                console.log(error)
+            }
+           
+           
         }
     
 }

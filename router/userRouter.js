@@ -14,6 +14,7 @@ const {
     adressget,
     adresspost,
     adressdashget,
+    adressdelete,
 }=require("../controller/adress")
 
 router.get("/user",userGet)
@@ -23,6 +24,7 @@ router.get("/user",userGet)
       .get("/adress",adressget)
       .post("/adress",adresspost)
       .get("/adressdashboard",adressdashget)
+      .delete("/deleteadress",adressdelete)
 
      
 module.exports=router;
