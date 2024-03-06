@@ -22,7 +22,6 @@ module.exports={
                 Description,
             }=req.body;
             const productimg = req.files ? req.files.map(img=>img.filename):'no image'
-            // console.log(req.files)
             
             const addproduct= new productmodel({
                 ProductName,
@@ -33,7 +32,6 @@ module.exports={
                 Description,
                 productimg,
             });
-            // console.log(addproduct)
                 await addproduct.save()
                 res.redirect('/admin/editproduct')
             
