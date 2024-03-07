@@ -20,6 +20,10 @@ const{
     checkoutGet,
 }=require("../controller/checkout.js")
 
+const{
+    wishlistGet,
+}=require("../controller/wishlist.js")
+
 router.get("/user",userGet)
       .get("/productdetails",productdetailsGet)
       .get("/cart",addcartGet)
@@ -29,6 +33,7 @@ router.get("/user",userGet)
       .get("/adressdashboard",adressdashget)
       .delete("/deleteadress",adressdelete)
       .get("/checkout",checkoutGet)
+      .get("/wishlist",wishlistGet)
 
      
 module.exports=router;
