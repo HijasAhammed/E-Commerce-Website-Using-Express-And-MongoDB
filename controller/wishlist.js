@@ -2,6 +2,7 @@ const { default: mongoose } = require("mongoose")
 
 const wishlistschema=require("../models/wishlist.js")
 const productschema=require("../models/addproduct.js")
+const { deleteOne } = require("../models/banner.js")
 module.exports={
     wishlistGet: async (req,res)=>{
         try{
@@ -55,5 +56,20 @@ module.exports={
         catch(error){
             console.log(error)
         }
+    },
+    wishlistdelete: async (req,res)=>{
+            const wishid = req.query.id;
+            const userID = req.session.user_id
+            try {
+                const wishdelete = await wishlistschema.updateOne(
+                    { userID: userID },
+                    { $pull: { items: { productID: wishid } } }
+                );
+                console.log(wishdelete);
+                res.status(200).json({ message: "Item deleted successfully" });
+            } catch (error) {
+                console.log(error);
+                res.status(500).json({ error: "Internal server error" });
+            }
+        }
     }
-}

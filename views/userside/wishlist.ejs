@@ -15,17 +15,50 @@
     <main>
         <div class="wishlist-container">
             <% data[0].newdata.forEach((wish,i)=> {%>
-             <div class="product-card">
+             <div class="product-card" id="rm">
                 <img src="/asset/<%=wish.productimg %>" alt="Product Image">
                 <h1><%=wish.ProductName %></h1>
                 <p><%=wish.Description %></p>
                 <h4>Price:<%=wish.Price %></h4>
-                <button onclick="removeFromWishlist(productId)">Remove from Wishlist</button>
+                <button onclick="deletion('<%=wish._id%>')">Remove from Wishlist</button>
             </div>
             <% }) %>
-            <!-- Repeat the above product card for each product in the wishlist -->
         </div>
     </main>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        async function deletion(dltproduct){
+         
+            try {
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, delete it!"
+                }).then(async(result) => {
+                    if (result.isConfirmed) {
+                        console.log(dltproduct);
+                        const response = await axios.delete(`/user/deletewishlist?id=${dltproduct}`)
+                if(response.status==200){
+                    Swal.fire({
+                         title: "Deleted!",
+                         text: "Your file has been deleted.",
+                         icon: "success"
+                        });
+                        document.getElementById(`rm`).remove();
+                    }else{
+                    console.log('error');
+                }
+            }
+        });
+    } catch (error) {
+                console.log('error');
+            }
+        }
+    </script>
 </body>
 </html>
