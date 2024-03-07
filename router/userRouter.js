@@ -22,6 +22,7 @@ const{
 
 const{
     wishlistGet,
+    wishlistPost,
 }=require("../controller/wishlist.js")
 
 router.get("/user",userGet)
@@ -34,6 +35,7 @@ router.get("/user",userGet)
       .delete("/deleteadress",adressdelete)
       .get("/checkout",checkoutGet)
       .get("/wishlist",wishlistGet)
+      .get("/add_wishlist",wishlistPost)
 
      
 module.exports=router;

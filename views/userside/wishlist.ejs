@@ -14,16 +14,15 @@
 
     <main>
         <div class="wishlist-container">
-            <!-- Display each product in the wishlist -->
-            <!-- Example product card -->
-            <div class="product-card">
-                <img src="path/to/product/image.jpg" alt="Product Image">
-                <h2>Product Name</h2>
-                <p>Description of the product</p>
-                <p>Price: $XX.XX</p>
+            <% data[0].newdata.forEach((wish,i)=> {%>
+             <div class="product-card">
+                <img src="/asset/<%=wish.productimg %>" alt="Product Image">
+                <h1><%=wish.ProductName %></h1>
+                <p><%=wish.Description %></p>
+                <h4>Price:<%=wish.Price %></h4>
                 <button onclick="removeFromWishlist(productId)">Remove from Wishlist</button>
             </div>
-
+            <% }) %>
             <!-- Repeat the above product card for each product in the wishlist -->
         </div>
     </main>

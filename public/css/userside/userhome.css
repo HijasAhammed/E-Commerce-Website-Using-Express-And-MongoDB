@@ -557,6 +557,19 @@ h4 {
   height: 1.8rem;
   fill: var(--yellow);
 }
+.hallo{
+  display: inline-block;
+  height:50px;
+  width: 15rem;
+  border: 1px solid var(--grey-color-alt);
+  border-radius: 0.3rem;
+  color: var(--dark-color-altr);
+  font-weight: 600;
+  font-size: 1.7rem;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
 
 .product__bottom {
   padding-top: 1.6rem;
