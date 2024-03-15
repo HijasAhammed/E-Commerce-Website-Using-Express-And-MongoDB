@@ -24,7 +24,8 @@
             </tr>
         </thead>
         <tbody>
-         <% adressdash.forEach((data) => { %>
+         <% adressdash.forEach((array) => { %>
+            <% array.address.forEach((data) => { %>
             <tr id="product_<%=data._id%>">
                 <td><%= data.Name %></td>
                 <td><%= data.Locality %></td>
@@ -38,6 +39,7 @@
                     <button type="submit"onclick="deletion('<%=data._id%>')">Delete</button>
                 </td>
             </tr>
+            <% }); %>
             <% }); %>
         </tbody>
     </table>
@@ -77,9 +79,9 @@
             }
         }
     </script>
-    <button >Go to Check out</button>
+    <button onclick="window.location.href='/user/checkout'">Go to Check out</button>
     <button onclick="window.location.href='/user/adress'">Add Adress</button>
-    <button onclick="window.location.href='/user/user'">Back</button>
+    <button type="button" onclick="window.location.href='/user/user'">Back</button>
 
-</body>
+</body> 
 </html>

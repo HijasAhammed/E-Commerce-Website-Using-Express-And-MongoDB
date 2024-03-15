@@ -1,5 +1,11 @@
 const mongoose=require("mongoose")
 const adressSchema=new mongoose.Schema({
+user:{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:"data",
+    required:true
+},
+address:[{
     Name:{
         type:String,
         required:true,
@@ -31,6 +37,7 @@ const adressSchema=new mongoose.Schema({
     Pincode:{
         type:Number,
         required:true,
-    }
+    },
+}]
 })
 module.exports=mongoose.model("adress",adressSchema)

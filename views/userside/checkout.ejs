@@ -1,54 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title style="position: fixed;">Checkout</title>
-    <link rel="stylesheet" href="/css/userside/checkout.css">
-</head>
-<body>
-    <h2>Shipping Address</h2>
-    <div>
-        <form id="addressForm">
-            <!-- <label for="fullName">Full Name:</label> -->
-            <input type="text" id="fullName" name="fullName" required><br>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout</title>
+    <link rel="shortcut icon" href="title-img.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/userside/checkout.css" />
+  </head>
+  <body>
 
-            <button type="submit">Confirm Address</button>
-        </form>
+    <div id="page-title"><p>Order Summary</p></div>
+
+    <!-- containers section -->
+    <div id="container">
+      <!-- First Container -->
+      <div>
+        <p>Your Items</p>
+        <div id="items">
+          <div id="items-img">
+            <img
+              src="https://onemg.gumlet.io/image/upload/a_ignore,w_380,h_380,c_fit,q_auto,f_auto/v1650263986/tswiqumxltxctokbztgv.jpg"
+              alt=""
+            />
+          </div>
+          <div id="items-details">
+            <div>
+              <p><span id="prod-name">product Name</span></p>
+              <p>₹<span class="prod-price">0</span></p>
+            </div>
+            <div>
+              <p>bottle of 60 vegicaps</p>
+              <p>
+                MRP<span style="text-decoration: line-through">₹1230.12</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Second Container -->
+      <div id="second-container">
+        <!-- <p>Select Address</p> -->
+        <div>
+          <p>Select Address</p>
+          <h4 class="orange" id="hai">CHANGE</h4>
+        </div>
+        <!-- second container full details -->
+        <div>
+          <div id="address-details">
+            <!-- type your content here-->
+            <p>HOME</p>
+            <p>MD FAROOQUE ANSARI</p>
+            <p>8892763792</p>
+            <p>4, Mili, T H Kataria Mrg, Goa Portugis Hotel, Mahim</p>
+            <p>DELHI</p>
+          </div>
+          <div id="price-details">
+            <div>
+              <p>Item Total(MRP)</p>
+              <p id="total-mrp">₹ <span class="prod-mrp">0</span></p>
+            </div>
+            <div>
+              <p>Price Discount</p>
+              <p>₹-<span id="prod-discount">0.00</span></p>
+            </div>
+            <div>
+              <p>Shipping Fee</p>
+              <p>₹0</p>
+            </div>
+            <div>
+              <h5>To be paid</h5>
+              <h5>₹ <span class="prod-price">0</span></h5>
+            </div>
+            <div>
+              <p>Total Savings</p>
+              <h5>₹<span id="savings">0</span></h5>
+            </div>
+          </div>
+          </div>
+          <div id="payment-method">
+            <p >Select Payment Method</p>
+            <div>
+              <input type="radio" id="online" name="payment_method" value="online">
+              <label for="online">Online Payment</label><br>
+              <input type="radio" id="cod" name="payment_method" value="cod">
+              <label for="cod">Cash on Delivery</label><br>
+            </div>
+          <div id="checkout">
+            <div id="payment-btn"><p>PROCEED TO PAYMENT</p></div>
+          </div>
+
+          <div class="footer-text">
+            <hr />
+            <h3>
+            The return policy for this product is 7 days
+            </h3>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <!-- Payment Method Selection -->
-    <h2>Select Payment Method</h2>
-    <div>
-        <input type="radio" id="onlinePayment" name="paymentMethod" value="online">
-        <label for="onlinePayment">Online Payment</label><br>
-
-        <input type="radio" id="cashOnDelivery" name="paymentMethod" value="cash">
-        <label for="cashOnDelivery">Cash on Delivery</label><br>
-    </div>
-
-    <!-- Product Details Summary -->
-    <h2>Order Summary</h2>
-    <div id="productDetails">
-        <!-- Product details will be populated here -->
-    </div>
-
-    <h3>Total Price: <span id="totalPrice">$0.00</span></h3>
-
-    <!-- Submit Button -->
-    <button id="placeOrderBtn">Continue</button>
-
-    <!-- Include any necessary JavaScript -->
+    <form action="" class="popup" id="hallo">
+      <div id="adress" class="innerDiv">
+        <!-- type your content here-->
+        <p class="ptag">HOME</p>
+        <p class="ptag">MD FAROOQUE ANSARI</p>
+        <p class="ptag">8892763792</p>
+        <p class="ptag">4, Mili, T H Kataria Mrg, Goa Portugis Hotel, Mahim</p>
+        <p class="ptag">DELHI</p>
+        <input type="radio" name="" id="" style="position: absolute; top: 60px; left: 600px;">
+      </div>
+      <div class="buttons">
+        <button type="submit">Submit</button>
+        <button type="submit">Add Address</button>
+        <button type="button" onclick="window.location.href='/user/checkout'">Back</button>
+      </div>
+      
+  </form>
     <script>
-        // JavaScript code to handle form submission, validate inputs, calculate totals, etc.
-        document.getElementById('addressForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            // Handle address form submission, e.g., send the address details to the server
-        });
+      const change=document.getElementById("hai")
 
-        document.getElementById('placeOrderBtn').addEventListener('click', function() {
-            // Handle place order button click event, e.g., validate inputs and submit the order
-        });
+      const changer=document.getElementById("hallo")
+      change.addEventListener("click",function(event){
+        changer.style.display="block"
+      })
+
     </script>
-</body>
-</html>
+  </body>
+  
+</html> 

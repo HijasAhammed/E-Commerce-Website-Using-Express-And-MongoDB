@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LiYa</title>
     <link rel="icon" type="image/x-icon" href="public/logo/Kart.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
@@ -17,24 +18,16 @@
     <form action="/addcart" method="post">
         <main>
             <section id="cart">
+               
                 <div id="cart-container">
                     <div id="offers">
                         <p>Available offers</p>
                         <ul>- 10% Instant Discount on Rupay Credit cards on a Minimum spend of Rs 2,000. TCA </ul>
                         <button>Show More <i class="uil uil-angle-down"></i></button>
                     </div>
-                    <div class="select-item">   
-                        <div class="select-item-left">
-                            <input type="checkbox" name="" id="">
-                            <p>1/1 Items Selected</p>
-                        </div>
-                        <div class="select-item-right">
-                            <button>Remove</button>
-                            <button>Move to Wishlist</button>
-                        </div>
-                    </div>
                     <% datas[0].newpro.forEach((details,i)=>  {%>
                         <div class="product-item"> 
+                          
                             <div class="product-item-img">
                                 <img src="/asset/<%=details.productimg %>" alt="">
                             </div>
@@ -46,7 +39,7 @@
                                 <p>Rs.<%=details.Price %><span> &nbsp; 75% OFF</span></p>
                                 <p><i class="uil uil-enter"></i> <b> 14 days </b> return available</p>
                             </div>
-                       
+                            <i class="fa-solid fa-trash"></i>   
                         </div>
                         <% })%>
                 </div>

@@ -103,6 +103,11 @@ aside{
     height: 40px;
     margin-top: 10px;
 }
+.fa-solid{
+    position: absolute;
+    left:740px;
+    top: 20px;
+}
 
 .select-item-right button:hover {
     color: #fff;
@@ -110,6 +115,7 @@ aside{
 }
 
 .product-item {
+    position: relative;
     margin: 7px;
     padding: 15px;
     display: flex;

@@ -23,7 +23,7 @@ module.exports={
             return res.status(400).send("Invalid password");
         }
         req.session.user_id=user._id
-
+    
        return res.redirect("/user/user");
     },
     signupget:(req,res)=>{
@@ -64,9 +64,7 @@ module.exports={
     otpget:(req,res)=>{
         res.render("otpvarification")
     },
- 
     otppost:async(req,res)=>{
-        // console.log(req.body)
         const {otp}=req.body
         console.log(otp)
         const varifyotp=await twilio.verify.v2.services(serviceSSID)
@@ -83,8 +81,6 @@ module.exports={
                 console.error("error updating user document",error);
                 return res.status(500).send("internal server error");
             }
-            // const varifytune=await signData.updateOne({phone:number},{$set:{varified:true}})
-           
         }else{
             console.log('otp varification failed')
             return res.status(400).send("otp varification failed")
@@ -95,7 +91,6 @@ module.exports={
     },
     resetpassPost: async (req,res)=>{
         const email=req.body.email;
-        // console.log(email)
             const user=nodemailer.createTransport({
                 service:"gmail",
                 auth:{
@@ -120,24 +115,18 @@ module.exports={
     },
     resetverifyGet:(req,res)=>{
         const email=req.params.mail;
-        // console.log(email)
         res.render("resetpassvarify",{email});
-
     },
     resetverifyPost:async(req,res)=>{
         try{
-            const email=req.params.mail;
-            // console.log(email)
-
+            const email=req.params.mail;    
             const otp=req.body.otp;
-
             console.log("Received OTP:", otp);
             const userExist=await signData.findOne({email:email});
             console.log("User Exist:", userExist);
             if(!userExist){
                return res.redirect("/")
             }else if(emailOtp.sendOTP== otp){
-
                 console.log("otp validation ok")
                     res.redirect(`/resetpassword/${email}`)
                 }
