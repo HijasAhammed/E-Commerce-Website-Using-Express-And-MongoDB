@@ -346,24 +346,62 @@ body {
     color: #757575;
     line-height: 1.42857143;
   }
-  .popup{
-    width:650px;
-    height:400px; 
+.popup {
+    width: 70%; /* Adjust the width as needed */
+    max-width: 650px; /* Set maximum width */
+    height: auto; /* Allow height to adjust based on content */
     display: none;
     background-color: white;
-    box-shadow: 2px 2px 10px 0px black;
+    border-radius: 10px; /* Add border radius for rounded corners */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Update box shadow */
     position: absolute;
-    top: 110px;
-    left: 300px;
-    overflow-y: scroll;
-  }
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the popup */
+    padding: 20px; /* Add padding */
+    overflow: auto; /* Enable scrolling if content exceeds height */
+}
+
+.innerDiv {
+    margin-bottom: 20px; /* Add space between innerDiv elements */
+    border-bottom: 1px solid #ccc; /* Add border between innerDiv elements */
+    padding-bottom: 10px; /* Add padding at the bottom of innerDiv */
+}
+
+.ptag {
+    margin: 0; /* Remove default margin */
+    line-height: 1.5; /* Adjust line height for better readability */
+}
+
+.buttons {
+    text-align: center; /* Center align buttons */
+    margin-top: 20px; /* Add space at the top */
+}
+
+.buttons button {
+    margin: 0 10px; /* Add space between buttons */
+    padding: 6px 20px; /* Add padding to buttons */
+    border: none; /* Remove default button border */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    background-color: #007bff; /* Change button background color */
+    color: white; /* Change button text color */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.buttons button:hover {
+    background-color: #0056b3; /* Darker color on hover */
+}
+
   .innerDiv{
     height: auto;
-    background-color: rgb(203, 231, 237);
+    /* background-color: rgb(203, 231, 237); */
+    border: 1px solid;
      position: relative;
+
      
   }
   .buttons{
+    top: 300px;
     width: 100%;
     height: auto;
     display: flex;

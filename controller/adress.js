@@ -17,7 +17,7 @@ module.exports={
                     const datas={   
                         Name:req.body.Name,
                         Locality:req.body.Locality,
-                        Country:req.body.Country,
+                        Phone:req.body.Phone,
                         District:req.body.District,
                         State:req.body.State,
                         City:req.body.City,
@@ -41,8 +41,11 @@ module.exports={
         },
         adressdelete: async (req,res)=>{
             const adressid=req.query.id;
+            console.log(adressid);
+            const userId = req.session.user_id
             try{
-              const abc=  await adress.deleteOne({_id:adressid});
+              const abc=  await adress.updateOne({user:userId},{$pull:{address:{_id:adressid}}});
+                console.log(abc);
                 res.json("deleted")
             }
             catch(error){

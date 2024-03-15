@@ -100,15 +100,22 @@
       </div>
     </div>
     <form action="" class="popup" id="hallo">
-      <div id="adress" class="innerDiv">
-        <!-- type your content here-->
-        <p class="ptag">HOME</p>
-        <p class="ptag">MD FAROOQUE ANSARI</p>
-        <p class="ptag">8892763792</p>
-        <p class="ptag">4, Mili, T H Kataria Mrg, Goa Portugis Hotel, Mahim</p>
-        <p class="ptag">DELHI</p>
-        <input type="radio" name="" id="" style="position: absolute; top: 60px; left: 600px;">
-      </div>
+        <% addresscheck.forEach((array)=> { %>
+          <% array.address.forEach((data) => { %>
+        <div id="adress" class="innerDiv">
+          <p class="ptag"> &nbsp; <span style="font-weight: bold;">Name:</span><%= data.Name%></p>
+          <p class="ptag"> &nbsp; <span style="font-weight: bold;">Locality:</span><%= data.Locality%></p>
+          <p class="ptag"> &nbsp; <span style="font-weight: bold;">Phone:</span><%= data.Phone%></p>
+          <p class="ptag"> &nbsp; <span style="font-weight: bold;">District:</span><%= data.District%></p>
+          <p class="ptag"> &nbsp; <span style="font-weight: bold;">State:</span><%= data.State%></p>
+          <p class="ptag"> &nbsp; <span style="font-weight: bold;">City:</span><%= data.City%></p>
+          <p class="ptag"> &nbsp; <span style="font-weight: bold;">HouseName:</span><%= data.HouseName%></p>
+          <p class="ptag"> &nbsp; <span style="font-weight: bold;">Pincode:</span><%= data.Pincode%></p>
+          <input type="radio" name="" id="" style="position: absolute; top: 60px; left: 600px;">
+        </div>
+        <% }); %>
+        <% }); %>
+      
       <div class="buttons">
         <button type="submit">Submit</button>
         <button type="submit">Add Address</button>
@@ -118,7 +125,6 @@
   </form>
     <script>
       const change=document.getElementById("hai")
-
       const changer=document.getElementById("hallo")
       change.addEventListener("click",function(event){
         changer.style.display="block"

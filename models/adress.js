@@ -14,8 +14,8 @@ address:[{
         type:String,
         required:true,
     },
-    Country:{
-        type:String,
+    Phone:{
+        type:Number,
         required:true,
     },
     District:{
