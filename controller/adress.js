@@ -41,11 +41,9 @@ module.exports={
         },
         adressdelete: async (req,res)=>{
             const adressid=req.query.id;
-            console.log(adressid);
             const userId = req.session.user_id
             try{
               const abc=  await adress.updateOne({user:userId},{$pull:{address:{_id:adressid}}});
-                console.log(abc);
                 res.json("deleted")
             }
             catch(error){

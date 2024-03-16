@@ -349,7 +349,7 @@ body {
 .popup {
     width: 70%; /* Adjust the width as needed */
     max-width: 650px; /* Set maximum width */
-    height: auto; /* Allow height to adjust based on content */
+    height: 400px; /* Allow height to adjust based on content */
     display: none;
     background-color: white;
     border-radius: 10px; /* Add border radius for rounded corners */
@@ -359,7 +359,7 @@ body {
     left: 50%; /* Center horizontally */
     transform: translate(-50%, -50%); /* Center the popup */
     padding: 20px; /* Add padding */
-    overflow: auto; /* Enable scrolling if content exceeds height */
+    overflow: scroll; /* Enable scrolling if content exceeds height */
 }
 
 .innerDiv {
@@ -383,7 +383,7 @@ body {
     padding: 6px 20px; /* Add padding to buttons */
     border: none; /* Remove default button border */
     border-radius: 5px; /* Add border radius for rounded corners */
-    background-color: #007bff; /* Change button background color */
+    background-color: #0E8388;; /* Change button background color */
     color: white; /* Change button text color */
     cursor: pointer; /* Change cursor to pointer on hover */
 }
@@ -419,3 +419,9 @@ body {
   .ptag{
     font-size: .8rem;
   }
+  .fa-solid.fa-arrow-left {
+   position: absolute;
+   left: 40px;
+  }
+  
+  

@@ -7,53 +7,54 @@
     <title>Checkout</title>
     <link rel="shortcut icon" href="title-img.png" type="image/x-icon" />
     <link rel="stylesheet" href="/css/userside/checkout.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   </head>
   <body>
 
     <div id="page-title"><p>Order Summary</p></div>
-
-    <!-- containers section -->
+    <p onclick="window.location.href='/user/user'"><i class="fa-solid fa-arrow-left"></i></p>
+   
     <div id="container">
-      <!-- First Container -->
       <div>
         <p>Your Items</p>
+       
         <div id="items">
           <div id="items-img">
             <img
-              src="https://onemg.gumlet.io/image/upload/a_ignore,w_380,h_380,c_fit,q_auto,f_auto/v1650263986/tswiqumxltxctokbztgv.jpg"
+              src="" 
               alt=""
             />
           </div>
           <div id="items-details">
+        
             <div>
               <p><span id="prod-name">product Name</span></p>
               <p>₹<span class="prod-price">0</span></p>
             </div>
-            <div>
+            <!-- <div>
               <p>bottle of 60 vegicaps</p>
               <p>
                 MRP<span style="text-decoration: line-through">₹1230.12</span>
               </p>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
-      <!-- Second Container -->
       <div id="second-container">
-        <!-- <p>Select Address</p> -->
         <div>
           <p>Select Address</p>
           <h4 class="orange" id="hai">CHANGE</h4>
         </div>
-        <!-- second container full details -->
         <div>
-          <div id="address-details">
-            <!-- type your content here-->
-            <p>HOME</p>
-            <p>MD FAROOQUE ANSARI</p>
-            <p>8892763792</p>
-            <p>4, Mili, T H Kataria Mrg, Goa Portugis Hotel, Mahim</p>
-            <p>DELHI</p>
+          <div id="addressdetails">
+            <p>&nbsp; <span style="font-weight: bold;">Name: &nbsp;</span><%= addresscheck[0].address[0].Name%></p>
+            <p> &nbsp; <span style="font-weight: bold;">Locality: &nbsp;</span><%= addresscheck[0].address[0].Locality%></p>
+            <p> &nbsp; <span style="font-weight: bold;">Phone: &nbsp;</span><%= addresscheck[0].address[0].Phone%></p>
+            <p> &nbsp; <span style="font-weight: bold;">District: &nbsp;</span><%= addresscheck[0].address[0].District%></p>
+            <p> &nbsp; <span style="font-weight: bold;">State: &nbsp;</span><%= addresscheck[0].address[0].State%></p>
+            <p> &nbsp; <span style="font-weight: bold;">City: &nbsp;</span><%= addresscheck[0].address[0].City%></p>
+            <p> &nbsp; <span style="font-weight: bold;">HouseName: &nbsp;</span><%= addresscheck[0].address[0].HouseName%></p>
+            <p> &nbsp; <span style="font-weight: bold;">Pincode: &nbsp;</span><%= addresscheck[0].address[0].Pincode%></p>
           </div>
           <div id="price-details">
             <div>
@@ -111,26 +112,43 @@
           <p class="ptag"> &nbsp; <span style="font-weight: bold;">City:</span><%= data.City%></p>
           <p class="ptag"> &nbsp; <span style="font-weight: bold;">HouseName:</span><%= data.HouseName%></p>
           <p class="ptag"> &nbsp; <span style="font-weight: bold;">Pincode:</span><%= data.Pincode%></p>
-          <input type="radio" name="" id="" style="position: absolute; top: 60px; left: 600px;">
+          <input name="hiju" type="radio" value="<%= data.Name%>,<%= data.Locality%>,<%= data.Phone%>,<%= data.District%>,<%= data.State%>,<%= data.City%>,<%= data.HouseName%>,<%= data.Pincode%>" name="" id="" class="radio1" style="position: absolute; top: 60px; left: 600px;">
         </div>
         <% }); %>
         <% }); %>
       
       <div class="buttons">
-        <button type="submit">Submit</button>
-        <button type="submit">Add Address</button>
+        <button  class="orange" type="button" id="hii">Submit</button>
+        <button type="button" onclick="window.location.href='/user/adress'">Add Address</button>
         <button type="button" onclick="window.location.href='/user/checkout'">Back</button>
       </div>
       
   </form>
-    <script>
-      const change=document.getElementById("hai")
-      const changer=document.getElementById("hallo")
-      change.addEventListener("click",function(event){
-        changer.style.display="block"
-      })
-
-    </script>
+  <script>
+    const change = document.getElementById("hai");
+    const changer = document.getElementById("hallo");
+    const submitbtn = document.getElementById("hii");
+    const addressSpace = document.getElementById("addressdetails");
+    const formContainer = document.getElementById("hallo");
+  
+    change.addEventListener("click", function(event) {
+      changer.style.display = "block";
+    });
+  
+    const radios = document.querySelectorAll(".radio1");
+  
+    radios.forEach(radio => {
+      radio.addEventListener("change", function(event) {
+        const selectedAddress = event.target.closest('.innerDiv').innerHTML;
+        addressSpace.innerHTML = selectedAddress;
+        submitbtn.style.display = "block";
+      });
+    });
+    const closeButton = document.getElementById("hii");
+    closeButton.addEventListener("click", function(event) {
+      formContainer.style.display = "none";
+    });
+  </script>
   </body>
   
 </html> 
