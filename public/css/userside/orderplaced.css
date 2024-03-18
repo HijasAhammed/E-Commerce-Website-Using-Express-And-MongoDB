@@ -1,0 +1,46 @@
+    body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #F8F8F8;
+}
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.success-animation {
+  margin-bottom: 20px;
+}
+.checkmark {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 48px;
+  line-height: 80px;
+  animation: scale 0.5s ease-in-out;
+}
+#doneButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+@keyframes scale {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

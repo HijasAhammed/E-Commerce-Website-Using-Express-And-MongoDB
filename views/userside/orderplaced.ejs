@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Successful</title>
+  <link rel="stylesheet" href="/css/userside/orderplaced.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="success-animation">
+      <div class="checkmark">&#10004;</div>
+    </div>
+    <h1>Order Successful!</h1>
+    <p>Thank you for your order. Your items will be shipped shortly.</p>
+    <button id="doneButton">Done</button>
+  </div>
+  <script>
+    window.addEventListener('load', function() {
+  var container = document.querySelector('.container');
+  container.style.opacity = 1;
+  });
+  </script>
+</body>
+</html>

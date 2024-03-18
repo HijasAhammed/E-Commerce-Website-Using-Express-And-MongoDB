@@ -5,38 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Checkout</title>
-    <link rel="shortcut icon" href="title-img.png" type="image/x-icon" />
     <link rel="stylesheet" href="/css/userside/checkout.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   </head>
   <body>
-
     <div id="page-title"><p>Order Summary</p></div>
     <p onclick="window.location.href='/user/user'"><i class="fa-solid fa-arrow-left"></i></p>
    
     <div id="container">
       <div>
         <p>Your Items</p>
-       
         <div id="items">
           <div id="items-img">
-            <img
-              src="" 
-              alt=""
-            />
+            <img src="/asset/<%=data.productimg[0]%>" alt="">
           </div>
           <div id="items-details">
         
             <div>
-              <p><span id="prod-name">product Name</span></p>
-              <p>₹<span class="prod-price">0</span></p>
+              <p><span id="prod-name"><%=data.ProductName%></span></p>
+              <p>₹<span class="prod-price"><%=data.Price%></span></p>
             </div>
-            <!-- <div>
-              <p>bottle of 60 vegicaps</p>
-              <p>
-                MRP<span style="text-decoration: line-through">₹1230.12</span>
-              </p>
-            </div> -->
           </div>
         </div>
       </div>
@@ -59,23 +47,19 @@
           <div id="price-details">
             <div>
               <p>Item Total(MRP)</p>
-              <p id="total-mrp">₹ <span class="prod-mrp">0</span></p>
-            </div>
-            <div>
-              <p>Price Discount</p>
-              <p>₹-<span id="prod-discount">0.00</span></p>
+              <p id="total-mrp">₹ <span class="prod-mrp"><%=data.Price%></span></p>
             </div>
             <div>
               <p>Shipping Fee</p>
-              <p>₹0</p>
+              <p>Free</p>
             </div>
             <div>
               <h5>To be paid</h5>
-              <h5>₹ <span class="prod-price">0</span></h5>
+              <h5>₹ <span class="prod-price"><%=data.Price%></span></h5>
             </div>
             <div>
               <p>Total Savings</p>
-              <h5>₹<span id="savings">0</span></h5>
+              <h5>₹<span id="savings"><%=data.Price%></span></h5>
             </div>
           </div>
           </div>
@@ -130,18 +114,21 @@
     const submitbtn = document.getElementById("hii");
     const addressSpace = document.getElementById("addressdetails");
     const formContainer = document.getElementById("hallo");
-  
+    const radios = document.querySelectorAll(".radio1");
+
     change.addEventListener("click", function(event) {
       changer.style.display = "block";
     });
-  
-    const radios = document.querySelectorAll(".radio1");
-  
+    submitbtn.addEventListener("click", function(event) {
+   const radios = document.querySelector(".radio1");
+      radios.style.display = 'none'
+    });
     radios.forEach(radio => {
       radio.addEventListener("change", function(event) {
         const selectedAddress = event.target.closest('.innerDiv').innerHTML;
         addressSpace.innerHTML = selectedAddress;
-        submitbtn.style.display = "block";
+        const radios = document.querySelector(".radio1");
+      radios.style.display = 'none'
       });
     });
     const closeButton = document.getElementById("hii");

@@ -18,6 +18,7 @@ const {
 }=require("../controller/adress")
 const{
     checkoutGet,
+    orderplacedGet,
 }=require("../controller/checkout.js")
 
 const{
@@ -34,10 +35,10 @@ router.get("/user",userGet)
       .post("/adress",adresspost)
       .get("/adressdashboard",adressdashget)
       .delete("/deleteadress",adressdelete)
-      .get("/checkout",checkoutGet)
+      .get("/checkout/:productId",checkoutGet)
       .get("/wishlist",wishlistGet)
       .get("/add_wishlist",wishlistPost)
       .delete("/deletewishlist",wishlistdelete)
-
+      .get("/orderplaced",orderplacedGet)
      
 module.exports=router;
