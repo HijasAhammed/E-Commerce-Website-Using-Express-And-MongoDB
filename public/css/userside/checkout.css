@@ -417,6 +417,7 @@ body {
     color: white;
     cursor:grab;
     border-radius: 10px;
+
   }
   .ptag{
     font-size: .8rem;
@@ -425,5 +426,3 @@ body {
    position: absolute;
    left: 40px;
   }
-  
-  

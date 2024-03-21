@@ -9,7 +9,9 @@ const nocache=require("nocache")
 mongoose.connect("mongodb://localhost:27017/ecommerece")
 .then(()=>{console.log("mongodb connected")})
 .catch(()=>{console.log("mongodb not connected")})
+app.use(express.json());
 app.use(express.urlencoded({extended:false}))
+
 app.use(session({
     secret:"nick",
     resave:false,

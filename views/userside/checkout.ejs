@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Checkout</title>
     <link rel="stylesheet" href="/css/userside/checkout.css" />
+    
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>r
   </head>
   <body>
     <div id="page-title"><p>Order Summary</p></div>
@@ -19,8 +22,7 @@
           <div id="items-img">
             <img src="/asset/<%=data.productimg[0]%>" alt="">
           </div>
-          <div id="items-details">
-        
+          <div id="items-details" productId="<%=data._id%>">
             <div>
               <p><span id="prod-name"><%=data.ProductName%></span></p>
               <p>₹<span class="prod-price"><%=data.Price%></span></p>
@@ -66,11 +68,12 @@
           <div id="payment-method">
             <p >Select Payment Method</p>
             <div>
-              <input type="radio" id="online" name="payment_method" value="online">
-              <label for="online">Online Payment</label><br>
-              <input type="radio" id="cod" name="payment_method" value="cod">
+              <input type="radio" id="online" name="payment_method" value="online" data-price-difference="-10">
+              <label for="online">Online Payment</label><br> 
+              <input type="radio" id="cod" name="payment_method" value="cod" data-price-difference="20">
               <label for="cod">Cash on Delivery</label><br>
-            </div>
+          </div>  
+          
           <div id="checkout">
             <div id="payment-btn"><p>PROCEED TO PAYMENT</p></div>
           </div>
@@ -104,7 +107,7 @@
       <div class="buttons">
         <button  class="orange" type="button" id="hii">Submit</button>
         <button type="button" onclick="window.location.href='/user/adress'">Add Address</button>
-        <button type="button" onclick="window.location.href='/user/checkout'">Back</button>
+        <button type="button" onclick="window.location.href='/user/user'">Back</button>
       </div>
       
   </form>
@@ -136,6 +139,40 @@
       formContainer.style.display = "none";
     });
   </script>
+  
+<script>
+      document.getElementById("payment-btn").addEventListener("click", async function(event) {
+          try {
+            event.preventDefault()
+            const selectedPaymentMethod = document.querySelector('input[name="payment_method"]:checked');
+            const totalprice=document.getElementById('savings').innerHTML
+            const element = document.getElementById("items-details")
+            console.log("element",element)
+            const productid = element.getAttribute('productId')
+            console.log("productid",productid)
+            console.log("totalprice",totalprice);
+            const paymentMetod= selectedPaymentMethod.value
+              console.log("paymentmethod",paymentMetod)
+          const response = await axios.post('/user/orderplaced', 
+          { paymentMethod: paymentMetod, totalprice: totalprice, productid: productid });
+
+              // const response = await axios.post('/user/orderplaced', { payment_method: paymentMetod });
+              if (selectedPaymentMethod) {
+      console.log(selectedPaymentMethod.value);
+      // Proceed with sending the payment method to the server
+      console.log(response)
+  if(response.data.success){
+  window.location.href="/user/orderplaced"
+  }
+  } else {
+      console.log('Error: Please select a payment method.');
+  }
+          } catch (error) {
+              console.log('Error:', error);
+          }
+      });
+</script>
+
   </body>
   
 </html> 
