@@ -1,0 +1,105 @@
+/* orderlist.css */
+
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+/* Main styles */
+.main {
+  padding-top: 20px;
+}
+
+.cartHead {
+  padding: 10px 0;
+  background-color: #f0f0f0; /* light gray background */
+}
+
+.cartHead h2 {
+  margin: 0;
+  padding: 0;
+  color: #333; /* dark gray text */
+}
+
+.cartBody {
+  margin-top: 20px;
+}
+
+.oneSection {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #fff; /* white background */
+}
+
+.cartItems {
+  padding: 10px;
+}
+
+.textOrder h2 {
+  margin: 0;
+  padding: 0;
+  color: #333; /* dark gray text */
+}
+
+.textOrder p {
+  margin: 0;
+  color: #666; /* medium gray text */
+}
+
+.statusCircle {
+  width: 10px;
+  height: 10px;
+  background-color: green;
+  border-radius: 50%;
+}
+
+.statusOrder{
+  margin-top: 20px;
+  color: #009688; /* teal color */
+}
+
+.cancel_ancher {
+  text-decoration: none;
+  color: #e91e63; /* pink color */
+}
+
+.cancel_ancher:hover {
+  text-decoration: underline;
+}
+
+.cancellProduct {
+  background-color: #f44336; /* red color */
+  color: #fff; /* white text */
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+.cancellProduct:hover {
+  background-color: #d32f2f; /* darker red color on hover */
+}
+
+.details {
+  background-color: #0E8388; /* indigo color */
+  color: #fff; /* white text */
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+.details:hover {
+  background-color: #303f9f; /* darker indigo color on hover */
+}
+
+/* Responsive styles */
+@media (max-width: 576px) {
+  .oneSection {
+      margin-bottom: 20px;
+  }
+}

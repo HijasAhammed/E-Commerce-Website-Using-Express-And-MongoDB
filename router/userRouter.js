@@ -28,7 +28,9 @@ const{
     wishlistPost,
     wishlistdelete,
 }=require("../controller/wishlist.js")
-
+const{
+    orderlistGet,
+}=require("../controller/orderlist.js")
 router.get("/user",userGet)
       .get("/productdetails",productdetailsGet)
       .get("/cart",addcartGet)
@@ -44,5 +46,6 @@ router.get("/user",userGet)
       .get("/orderplaced",orderplacedGet)
       .post("/codPayment",orderplacedPost)
       .post("/razorpay",razorpayPost)
+      .get("/orderlist",orderlistGet)
      
 module.exports=router;

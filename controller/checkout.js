@@ -23,15 +23,18 @@ module.exports={
         }
     },
     orderplacedGet:(req,res)=>{
+    
         res.render("userside/orderplaced")
     },
     orderplacedPost: async (req, res) => {
             try {   
-                console.log("Received request body:", req.body);
                 const { paymentMethod,productid,totalprice } = req.body;
                 const userId = req.session.user_id;
-                const products = []
-                products.push(new mongoose.Types.ObjectId( productid))
+                const productId =new mongoose.Types.ObjectId(productid);
+                const products = [{
+                    id:productId
+                }]
+              
                 const newOrder = new orders({
                     userID: userId,
                     products: products,
@@ -39,7 +42,6 @@ module.exports={
                     PaymentMethod: paymentMethod,
                     status: 'pending'
                 });
-                console.log(newOrder)
                 await newOrder.save()
                 res.json({success:true,payed:'cod'})
             } catch (error) {
@@ -48,12 +50,13 @@ module.exports={
         },
         razorpayPost: async (req, res) => {
             try {   
-                console.log('fdfddf');
                 const { PaymentMethod,productid,totalprice } = req.body;
-                const products = []
-                products.push(new mongoose.Types.ObjectId( productid))
-                console.log(totalprice,'fgfslfdjfsjlfjslsjljgfslfgjlfd');
-                
+                const productId =new mongoose.Types.ObjectId(productid);
+                const products = [{
+                    id:productId
+                }]
+            
+                console.log(products,'dssssssssssssssssssssssss');
                 const order = await razorpay.orders.create({
                     amount: totalprice * 100, // Amount is in paise
                     currency: 'INR',
