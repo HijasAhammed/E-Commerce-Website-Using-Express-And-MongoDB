@@ -140,38 +140,77 @@
     });
   </script>
   
-<script>
-      document.getElementById("payment-btn").addEventListener("click", async function(event) {
-          try {
-            event.preventDefault()
-            const selectedPaymentMethod = document.querySelector('input[name="payment_method"]:checked');
-            const totalprice=document.getElementById('savings').innerHTML
-            const element = document.getElementById("items-details")
-            console.log("element",element)
-            const productid = element.getAttribute('productId')
-            console.log("productid",productid)
-            console.log("totalprice",totalprice);
-            const paymentMetod= selectedPaymentMethod.value
-              console.log("paymentmethod",paymentMetod)
-          const response = await axios.post('/user/orderplaced', 
-          { paymentMethod: paymentMetod, totalprice: totalprice, productid: productid });
 
-              // const response = await axios.post('/user/orderplaced', { payment_method: paymentMetod });
-              if (selectedPaymentMethod) {
-      console.log(selectedPaymentMethod.value);
-      // Proceed with sending the payment method to the server
-      console.log(response)
-  if(response.data.success){
-  window.location.href="/user/orderplaced"
-  }
-  } else {
-      console.log('Error: Please select a payment method.');
-  }
-          } catch (error) {
-              console.log('Error:', error);
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+  document.getElementById("payment-btn").addEventListener("click", async function(event) {
+      try {
+          event.preventDefault(); // Prevent default form submission
+  
+          const selectedPaymentMethod = document.querySelector('input[name="payment_method"]:checked');
+          const totalprice = document.getElementById('savings').innerText;
+          const productid = document.getElementById("items-details").getAttribute('productId');
+  
+          if (!selectedPaymentMethod) {
+              console.log('Error: Please select a payment method.');
+              return; // Exit function if payment method is not selected
           }
-      });
-</script>
+  
+          if (selectedPaymentMethod.value === 'cod') {
+              const response = await axios.post('/user/codPayment', {
+                  paymentMethod: selectedPaymentMethod.value,
+                  totalprice: totalprice,
+                  productid: productid
+              });
+  
+              if (response.data.payed === 'cod') {
+                  window.location.href = '/user/orderplaced';
+              }
+          } else if (selectedPaymentMethod.value === 'online') {
+              const response = await axios.post('/user/razorpay', {
+                  totalprice: totalprice,
+                  PaymentMethod: selectedPaymentMethod.value
+              });
+  
+              if (response.status === 200) {
+                  const orderId = response.data.orderId;
+                  var options = {
+                      "key": "rzp_test_vixg29IkxIVXOQ",
+                      "amount": totalprice * 100,
+                      "currency": "INR",
+                      "name": "Liya",
+                      "description": "Test Transaction",
+                      "order_id": orderId,
+                      "handler": function (response) {
+                          window.location.href = "/user/orderplaced";
+                      },
+                      "theme": {
+                          "color": "#3399cc"
+                      }
+                  };
+                  var rzp1 = new Razorpay(options);
+  
+                  rzp1.on('payment.failed', function (response) {
+                      alert(response.error.code);
+                      alert(response.error.description);
+                      alert(response.error.source);
+                      alert(response.error.step);
+                      alert(response.error.reason);
+                      alert(response.error.metadata.order_id);
+                      alert(response.error.metadata.payment_id);
+                  });
+  
+                  rzp1.open();
+              } else {
+                  console.log('Error: Failed to create order');
+              }
+          }
+      } catch (error) {
+          console.log('Error:', error);
+      }
+  });
+  </script>
+  
 
   </body>
   

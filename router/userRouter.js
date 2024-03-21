@@ -20,6 +20,7 @@ const{
     checkoutGet,
     orderplacedPost,
     orderplacedGet,
+    razorpayPost,
 }=require("../controller/checkout.js")
 
 const{
@@ -41,6 +42,7 @@ router.get("/user",userGet)
       .get("/add_wishlist",wishlistPost)
       .delete("/deletewishlist",wishlistdelete)
       .get("/orderplaced",orderplacedGet)
-      .post("/orderplaced",orderplacedPost)
+      .post("/codPayment",orderplacedPost)
+      .post("/razorpay",razorpayPost)
      
 module.exports=router;
