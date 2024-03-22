@@ -1,0 +1,75 @@
+/* ordersummary.css */
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+  }
+  
+  /* Container styles */
+  .container-fluid {
+    padding: 20px;
+  }
+  
+  /* Header styles */
+  .cartHead {
+    background-color: #0E8388;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  /* Body styles */
+  .cartBody {
+    margin-top: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+  }
+  
+  /* Order item styles */
+  .imgOrder img {
+    max-width: 100px;
+    border-radius: 5px;
+  }
+  
+  .reviewBtn {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Order status styles */
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #007bff;
+    margin-right: 10px;
+  }
+  
+  .done {
+    background-color: #28a745;
+  }
+  
+  /* Shipping details styles */
+  .SDetails {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  
+  /* Price details styles */
+  .commonText {
+    font-weight: bold;
+  }
+  
+  .commonSub {
+    font-weight: bold;
+    color: #dc3545;
+  }
+  

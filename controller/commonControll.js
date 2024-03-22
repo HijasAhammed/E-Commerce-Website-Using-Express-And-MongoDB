@@ -14,7 +14,6 @@ module.exports={
         res.render("login")
     },
     loginpost: async (req,res)=>{
-        console.log(req.body)
         const user = await signData.findOne(({ email: req.body.email }));
         if (!user) {
             return res.status(400).send("User not found");
@@ -30,7 +29,6 @@ module.exports={
         res.render("signup")
     },
     signuppost:async (req,res)=>{
-        console.log(req.body)
         const{name,last,email,phone,password}=req.body
         const passwordRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.*\s).{8,16}$/;
         const emailRegax=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -66,14 +64,12 @@ module.exports={
     },
     otppost:async(req,res)=>{
         const {otp}=req.body
-        console.log(otp)
         const varifyotp=await twilio.verify.v2.services(serviceSSID)
         .verificationChecks.create({
             to: `+91${number}`,
             code: otp
         })
         if (varifyotp.status==='approved'){
-            console.log('verify',varifyotp.status);
             try{
                 await signData.updateOne({phone:number},{$set:{verified:true}});
                 return res.redirect("/")
@@ -121,13 +117,10 @@ module.exports={
         try{
             const email=req.params.mail;    
             const otp=req.body.otp;
-            console.log("Received OTP:", otp);
             const userExist=await signData.findOne({email:email});
-            console.log("User Exist:", userExist);
             if(!userExist){
                return res.redirect("/")
             }else if(emailOtp.sendOTP== otp){
-                console.log("otp validation ok")
                     res.redirect(`/resetpassword/${email}`)
                 }
                 else{
@@ -141,7 +134,6 @@ module.exports={
         },
     resetpasswordGet:(req,res)=>{
         const email =req.params.mail;
-        console.log(email)
         res.render("resetpass",{email});
     },
     resetpasswordPost:async(req,res)=>{
@@ -157,7 +149,6 @@ module.exports={
                     {email:email},
                     {$set:{password:newpassword}}
                 );
-                console.log("New password is",newpassword)
                 return res.redirect("/")
             }
         }

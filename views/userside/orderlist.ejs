@@ -55,9 +55,7 @@
                         <div class="statusCircle"></div>
                         <p class="statusOrder me-3"><%= order.Status %></p>
                       </div>
-                      <a class="cancel_ancher" href="/userOrderCancled">
-                        <button >Cancel</button>
-                      </a>
+                        <button onclick="location.href = '/user/cancelorder/<%= order._id %>' " style="background-color: brown; color: antiquewhite;" ><%= order.status == 'cancelled' ? 'cancelled' : 'cancell' %></button>
                       <a href="">
                         <div class="details">Details</div>
                       </a>  

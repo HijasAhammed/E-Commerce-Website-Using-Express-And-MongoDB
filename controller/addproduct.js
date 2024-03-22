@@ -50,7 +50,6 @@ module.exports={
             const id=req.params.id
             const productedit= await productmodel.findById(id)
             const allcategory= await categorymodel.find()
-            console.log(productedit)
             res.render("adminside/editpr",{productedit,allcategory})
         },
         editprPost:async (req,res)=>{
@@ -90,10 +89,8 @@ module.exports={
         deleteproduct: async(req,res)=>{
             try{
                 const dltproduct=req.query.id
-                console.log(dltproduct)
                 if(dltproduct){
                    const aa= await productmodel.deleteOne({_id:dltproduct})
-                   console.log(aa);
                     return res.status(200).json({success:true})
                 }else{
                     return res.status(404).json({success:false})
