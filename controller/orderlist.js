@@ -22,5 +22,8 @@ module.exports = {
             console.log(error)
         }
     },
+    ordersummary:(req,res)=>{
+        res.render("userside/ordersummary")
+    }
    
 };

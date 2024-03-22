@@ -31,7 +31,7 @@ const{
 const{
     orderlistGet,
     cancelorder,
-    // ordersummary,
+    ordersummary,
 }=require("../controller/orderlist.js")
 router.get("/user",userGet)
       .get("/productdetails",productdetailsGet)
@@ -50,5 +50,5 @@ router.get("/user",userGet)
       .post("/razorpay",razorpayPost)
       .get("/orderlist",orderlistGet)
       .get("/cancelorder/:orderId",cancelorder)
-    //   .get("/ordersummary",ordersummary)
+      .get("/ordersummary",ordersummary)
 module.exports=router;
