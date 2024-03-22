@@ -17,6 +17,9 @@ const ordersdata=new mongoose.Schema({
         PaymentMethod:{
         type:String,
     },
+    Address:{
+        type:String,
+    },
         status:{
             type:String,
             default:'pending'

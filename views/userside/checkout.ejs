@@ -150,6 +150,8 @@
           const selectedPaymentMethod = document.querySelector('input[name="payment_method"]:checked');
           const totalprice = document.getElementById('savings').innerText;
           const productid = document.getElementById("items-details").getAttribute('productId');
+          const Address= document.getElementById("addressdetails").innerHTML.trim()
+          console.log(Address)
   
           if (!selectedPaymentMethod) {
               console.log('Error: Please select a payment method.');
@@ -160,7 +162,8 @@
               const response = await axios.post('/user/codPayment', {
                   paymentMethod: selectedPaymentMethod.value,
                   totalprice: totalprice,
-                  productid: productid
+                  productid: productid,
+                  Address: Address,
               });
   
               if (response.data.payed === 'cod') {
@@ -169,7 +172,9 @@
           } else if (selectedPaymentMethod.value === 'online') {
               const response = await axios.post('/user/razorpay', {
                   totalprice: totalprice,
-                  PaymentMethod: selectedPaymentMethod.value
+                  PaymentMethod: selectedPaymentMethod.value,
+                  productid: productid,
+                  Address: Address,
               });
   
               if (response.status === 200) {

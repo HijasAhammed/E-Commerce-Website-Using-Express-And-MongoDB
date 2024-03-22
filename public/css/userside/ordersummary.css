@@ -42,6 +42,11 @@ body {
     padding: 8px 15px;
     border-radius: 5px;
     cursor: pointer;
+    height: 45px;
+    width: 100px;
+  }
+  .Review{
+    margin-top: 20px;
   }
   
   /* Order status styles */

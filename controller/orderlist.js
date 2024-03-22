@@ -5,8 +5,10 @@ module.exports = {
         try {
             const userId = req.session.user_id;
             const orders = await ordersModel.find({userID:userId}).populate('products.id');
-           orders.forEach(data=>{
-           })
+            orders.forEach(or=>{
+                console.log(or.id,'dddssd');
+            })
+            console.log(orders,"sassa");
             res.render("userside/orderlist", { orders }); 
         } catch (err) {
             console.error(err);
@@ -22,8 +24,16 @@ module.exports = {
             console.log(error)
         }
     },
-    ordersummary:(req,res)=>{
-        res.render("userside/ordersummary")
+    ordersummary:async(req,res)=>{
+       try {
+        const orderId = req.query.orderId
+        const orderDetails = await ordersModel.findOne({_id:orderId}).populate("products.id")
+        console.log(orderDetails,"ssss");
+        res.render("userside/ordersummary",{order:orderDetails});
+       } catch (error) {
+            console.log(error.message);
+
+       }
     }
    
 };

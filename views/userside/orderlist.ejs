@@ -49,14 +49,13 @@
                   <div>
                     <div class="d-flex align-items-center gap-2 prices">
                       <div class="lPrice marginRes">
-                        <p class="m-0">₹<%= order.Price %></p>
+                        <p class="m-0">₹<%= order.products[0].id.Price %></p>
                       </div>
                       <div class="d-flex align-items-center gap-2">
-                        <div class="statusCircle"></div>
                         <p class="statusOrder me-3"><%= order.Status %></p>
                       </div>
                         <button onclick="location.href = '/user/cancelorder/<%= order._id %>' " style="background-color: brown; color: antiquewhite;" ><%= order.status == 'cancelled' ? 'cancelled' : 'cancell' %></button>
-                      <a href="">
+                      <a href="/user/ordersummary?orderId=<%= order._id %>">
                         <div class="details">Details</div>
                       </a>  
                     </div>
