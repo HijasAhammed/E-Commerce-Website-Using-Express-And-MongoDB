@@ -32,6 +32,7 @@ const{
     orderlistGet,
     cancelorder,
     ordersummary,
+    reviewGet,
 }=require("../controller/orderlist.js")
 router.get("/user",userGet)
       .get("/productdetails",productdetailsGet)
@@ -51,4 +52,5 @@ router.get("/user",userGet)
       .get("/orderlist",orderlistGet)
       .get("/cancelorder/:orderId",cancelorder)
       .get("/ordersummary",ordersummary)
+      .get("/review",reviewGet)
 module.exports=router;

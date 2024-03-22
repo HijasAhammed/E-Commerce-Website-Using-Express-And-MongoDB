@@ -151,11 +151,10 @@
           const totalprice = document.getElementById('savings').innerText;
           const productid = document.getElementById("items-details").getAttribute('productId');
           const Address= document.getElementById("addressdetails").innerHTML.trim()
-          console.log(Address)
   
           if (!selectedPaymentMethod) {
               console.log('Error: Please select a payment method.');
-              return; // Exit function if payment method is not selected
+              return;
           }
   
           if (selectedPaymentMethod.value === 'cod') {

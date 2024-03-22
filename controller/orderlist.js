@@ -34,6 +34,9 @@ module.exports = {
             console.log(error.message);
 
        }
+    },
+    reviewGet:(req,res)=>{
+        res.render("userside/review")
     }
    
 };
