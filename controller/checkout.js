@@ -23,7 +23,6 @@ module.exports = {
         }
     },
     orderplacedGet: (req, res) => {
-
         res.render("userside/orderplaced")
     },
     orderplacedPost: async (req, res) => {

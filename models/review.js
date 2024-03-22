@@ -1,11 +1,13 @@
 const mongoose=require("mongoose")
 const reviewschema= new mongoose.Schema({
     productID:{
-        type:mongoose.Schema.Types.ObjectId,ref:"addproducts",
-    required:true},
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"addproducts",
+        required:true},
     review:[{
         UserId:{
-            type:mongoose.Schema.Types.ObjectId,ref:'data'},
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'data'},
     comment:{
         type:String
     }  

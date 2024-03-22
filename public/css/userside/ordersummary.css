@@ -77,4 +77,18 @@ body {
     font-weight: bold;
     color: #dc3545;
   }
+  .ratebutton {
+    background-color: #007bff;
+    color: white;
+    height: 30px;
+    width: 143px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    left: 2%;
+    position: absolute;
+    align-items: center;
+    display: flex;
+  }
   

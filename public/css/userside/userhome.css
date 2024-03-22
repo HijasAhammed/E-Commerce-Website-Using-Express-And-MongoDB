@@ -9,9 +9,6 @@
   --yellow: #ff8400;
   --white: #fff;
 }
-
-/* ======== Base ========== */
-
 *,
 *::after,
 *::before {
@@ -236,7 +233,6 @@ h4 {
   font-weight: 800;
 }
 
-/* =========== Navigation Media Query ============ */
 
 @media only screen and (max-width: 996px) {
   .nav__icons {
@@ -365,7 +361,7 @@ h4 {
   }
 }
 
-/* =========== Hero ============ */
+
 .hero {
   height: 100vh;
   position: relative;
@@ -470,7 +466,6 @@ h4 {
   }
 }
 
-/* ============ New Arrival ============== */
 
 .section {
   padding: 5rem 0;
@@ -523,7 +518,6 @@ h4 {
   }
 }
 
-/* ========== Product ========== */
 
 .product {
   display: flex;
@@ -572,7 +566,7 @@ h4 {
   padding: 0.8rem 4rem;
   background-color: var(--default-color);
   color: var(--grey-color);
-  /* text-transform: uppercase; */
+
   font-weight: 500;
   border-radius: 5px;
 }
@@ -612,7 +606,6 @@ h4 {
   }
 }
 
-/* =========== Cart Slide =========== */
 
 .cart__slide {
   padding-bottom: 30rem;
@@ -656,7 +649,6 @@ h4 {
   height: 1.8rem;
   width: 1.8rem;
   border-radius: 50%;
-  /* border: 2px solid var(--dark-color-alt); */
   cursor: pointer;
 }
 
@@ -870,14 +862,9 @@ h4 {
   }
 }
 
-/* =========== Special Offer ============ */
 .special__offer {
   position: relative;
   height: 40rem;
-  /* background: linear-gradient(to top,
-      rgb(17, 117, 231, 0.5),
-      rgba(136, 0, 133, 0.6)),
-    url("./images/Banner1.jpg") top/cover no-repeat fixed; */
     background: linear-gradient(to top,
     rgba(58, 97, 145, 0.5),
     rgba(53, 11, 52, 0.6)),
@@ -974,7 +961,7 @@ h4 {
   }
 }
 
-/* ============== Featured ============== */
+
 .featured__center {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -994,7 +981,7 @@ h4 {
 }
 
 
-/* ============  Blog  ============= */
+
 .blog {
   margin-bottom: 5rem;
 }
@@ -1069,7 +1056,7 @@ h4 {
   color: var(--default-color2);
 }
 
-/* ============ Blog Media Query ============ */
+
 
 @media only screen and (max-width: 1200px) {
   .blog__center {
@@ -1124,7 +1111,6 @@ h4 {
 }
 
 
-/* ============ Newsletter ============= */
 .newsletter {
   background-color: rgba(0, 0, 0, 0.1);
 }
@@ -1246,6 +1232,17 @@ h4 {
   font-weight: 400;
   margin-bottom: 1rem;
 }
+.userReview {
+  border: 2px solid #ccc; 
+  padding: 20px;
+  margin-bottom: 20px; 
+}
+
+
+.ratebutton:hover {
+  background-color: #0056b3;
+}
+
 
 @media only screen and (max-width: 998px) {
   .footer__top {
