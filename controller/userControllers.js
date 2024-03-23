@@ -1,5 +1,6 @@
 const banner=require("../models/banner")
 const products=require("../models/addproduct")
+const ReviewSchema = require('../models/review')
 module.exports={
     userGet: async (req,res)=>{
         const bannerscheme= await banner.find()
@@ -8,9 +9,9 @@ module.exports={
     },
     productdetailsGet: async (req,res)=>{
         const data=req.query.id
-        // console.log(data)  
+        const review = await ReviewSchema.find({productID:req.query.id}).populate("review.UserId")
+            console.log(review);
         const showproducts= await products.findOne({_id:data})
-        // console.log(showproducts)
-        res.render("userside/productdetails",{showproducts})
+        res.render("userside/productdetails", { showproducts, reviewone: review ? review : null });
     }
 }

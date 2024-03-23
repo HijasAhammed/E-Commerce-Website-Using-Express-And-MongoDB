@@ -86,10 +86,14 @@
               
             </div>
             <div class="content">
+              <%if(reviewone){%>
+                <% reviewone.forEach(data => { %>
+
+                  <%data.review.forEach(ele=> {%>  
               <div class="userReview">
                 <h2> Product Rating</h2>
                 <div class="text-end">
-                  <p class="proHead">Name</p>
+                  
                   <div class="topRating d-flex align-items-center" style="color: green; ">
                     <span class="ratedTop">★</span>
                     <span class="ratedTop">★</span>
@@ -97,11 +101,17 @@
                     <span class="ratedTop">★</span>
                     <span>★</span>
                   </div>
-                </div>
-                <p class="reviewDetails">Review Here</p>
-                <p class="ratedUserName">
+                </div><div> 
+                  <p class="proHead"><%=ele.UserId.name%></p>
+                      <p class="reviewDetails"><%= ele.comment %></p>
+                      <p class="ratedUserName"></p>
+                    </div>
                 </p>
               </div>
+              <% })%>
+              <% }) %>
+          <%}%>
+
             </div>
           </div>
        

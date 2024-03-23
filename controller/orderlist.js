@@ -31,66 +31,59 @@ module.exports = {
         res.render("userside/ordersummary",{order:orderDetails});
        } catch (error) {
             console.log(error.message);
-
        }
     },
     reviewGet: async (req,res)=>{
         try{
             const orderid=req.query.orderId
-            console.log(orderid)
             const orderdata= await ordersModel.findById(orderid)
             const product=orderdata.products
             let productID;
-            console.log(product)
             if(product.length<=1){
-                console.log("aah")
                 productID=product[0].id
-             
-
             }
             else{
                 productID=product
             }
             const reviewdata= await reviewModel.find()
-            console.log(productID)
             res.render("userside/review",{productID})
         }catch(error){
             console.log(error)
         }
-        
     },
     reviewPost: async (req, res) => {
         if (req.session.user_id) {
-            console.log(req.session.user_id)
-            console.log(req.query.pro)
             const productID=req.query.pro
             productID.trim()
             try {
                 const { review, comment } = req.body;
-    console.log(req.body)
-                // Check if the productID exists
                 const product = await addproductModel.findById(productID);
                 const userorder= await ordersModel.findOne({userID:req.session.user_id})
                 const orderID=userorder._id
-               const proid =product._id
-                console.log(product,"pososososo")     
-               
+               const proid =product._id 
+               console.log()
                 if (!product) {
-
                     return res.status(400).send("Invalid productID");
                 }
-    
-                // Create a new review
-                const newReview = new reviewModel({
-                    productID:proid,
-                    review:[{UserId:req.session.user_id}],
-                    comment     
-                });
-    
-                // Save the review
-                await newReview.save();
-                console.log(newReview, "Review saved successfully");
-                res.redirect(`/user/ordersummary/?orderId=${orderID}`);
+                else{
+                    const check= await reviewModel.findOne({productID:proid})
+                    if(check){
+                        check.review.push({UserId:req.session.user_id,comment})
+                        check.save();
+                        return res.redirect(`/user/ordersummary/?orderId=${orderID}`)
+                    }
+                    
+                    else{
+                        const newReview = new reviewModel({
+                            productID:proid,
+                            review:[{UserId:req.session.user_id,comment}],
+                        });
+                        await newReview.save();
+                       return res.redirect(`/user/ordersummary/?orderId=${orderID}`);
+                    }
+                }
+               
+
             } catch (error) {
                 console.log(error);
                 res.status(500).send("Error saving review");
@@ -99,6 +92,4 @@ module.exports = {
             res.status(403).send("Unauthorized");
         }
     },
-    
-    
 };

@@ -1,5 +1,6 @@
 const productmodel=require("../models/addproduct")
 const categorymodel=require("../models/category")
+
 const { updateOne } = require("../models/signupdata")
 module.exports={
     addproductGet: async (req,res)=>{ 
